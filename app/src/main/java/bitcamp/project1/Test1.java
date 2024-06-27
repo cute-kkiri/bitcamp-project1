@@ -9,4 +9,8 @@ public class Test1 {
     static void m1() {
         System.out.println("안뇽하싑네까. 오호호호홀라ㅏ라라랄라라!!! 지구최강 github👍");
     }
+
+    static void m2(){
+	    System.out.println("푸하하앟ㅇㅎ하항항");
+    }
 }
