@@ -5,4 +5,8 @@ public class Test1 {
         System.out.println("Test Test");
 	System.out.println("언니 안녕하세용");
     }
+
+    static void m1() {
+        System.out.println("안뇽하싑네까. 오호호호홀라ㅏ라라랄라라!!! 지구최강 github👍");
+    }
 }
