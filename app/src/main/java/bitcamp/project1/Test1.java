@@ -12,5 +12,8 @@ public class Test1 {
 
     static void m2(){
 	    System.out.println("푸하하앟ㅇㅎ하항항");
+	    System.out.println("언니 제 번호는");
+	    System.out.println("010-6410-9459");
+	    System.out.println("이거예용");
     }
 }
