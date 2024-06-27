@@ -1,14 +1,13 @@
-package page;
+package bitcamp.project1.page;
 
 
 import java.util.LinkedList;
-import Util.MenuCommand;
-import vo.User;
 
-public class AccountPage extends MenuCommand {
+import bitcamp.project1.Util.AccountCommand;
+import bitcamp.project1.vo.User;
 
-
-
+public class AccountPage extends AccountCommand {
+  static User user;
   /************************************************/
 
   private void setSelectMenu() {
@@ -21,22 +20,17 @@ public class AccountPage extends MenuCommand {
   /************************************************/
 
   // set default
-  AccountPage() {
-    select = new LinkedList<String>();
-    setSelectMenu();
+  public AccountPage(User user) {
+      select = new LinkedList<String>();
+      this.user = user;
+      setSelectMenu();
   }
-
-  // Test: User1(OREO) //////////////////////////////////////
-  static User user = new User();
-
 
   ///////////////////////////////////////////////////////////
   ////////////////////////// Method /////////////////////////
   ///////////////////////////////////////////////////////////
   // Run Default Menu
   public void menu() {
-    // Test: Input DummyData ////////////////////////////////
-    user.ac.addAccountDummy();
     getUserScanner();
   }// Method menu END
 
@@ -86,7 +80,7 @@ public class AccountPage extends MenuCommand {
     String str = "";
 
     str += printMenu(user.getID());
-    str += user.ac.printAccount();
+    str += printAccount();
     str += setMenuSelect();
 
     return str;
@@ -98,18 +92,18 @@ public class AccountPage extends MenuCommand {
 
     switch (ans) {
       case 1:// Create
-        user.ac.addAccount();
+        addAccount();
         return;
       case 2:// Info
-        System.out.print(user.ac.printInfo());
+        System.out.print(printInfo());
         return;
       case 3:// Edit
         System.out.printf("num?");
-        user.ac.editAccount(getUserScannerInt());
+        editAccount(getUserScannerInt());
         return;
       case 4:// Delete
         System.out.printf("num?");
-        user.ac.deleteAccount(getUserScannerInt());
+        deleteAccount(getUserScannerInt());
         return;
       case 0:// Exit
         System.out.printf("Exit\n");

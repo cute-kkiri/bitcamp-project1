@@ -1,4 +1,4 @@
-package vo;
+package bitcamp.project1.vo;
 
 public class Account {
 

@@ -1,7 +1,11 @@
-package page;
+package bitcamp.project1.page;
 
 import java.util.LinkedList;
-import Util.MenuCommand;
+
+import bitcamp.project1.DummyData;
+import bitcamp.project1.Util.MenuCommand;
+import bitcamp.project1.Util.UserCommand;
+import bitcamp.project1.vo.User;
 
 public class Menu extends MenuCommand {
 
@@ -83,12 +87,19 @@ public class Menu extends MenuCommand {
   // Run Menu by MenuNo(1,2...0)
   private void selectMenu(int ans) {
 
+    LinkedList<User> userList = new LinkedList<User>();
+    DummyData.addUserDummy(userList);
+
     switch (ans) {
-      case 1: // Login(Test: Success)
-        AccountPage main = new AccountPage();
-        main.menu();
+      case 1: // View Account(Test: Success)
+        //Test: Waffle(seqNo:1)
+        User testUser= userList.get(1);
+        AccountPage mainAccount = new AccountPage(testUser);
+        mainAccount.menu();
         return;
-      case 2: // Join
+      case 2: // User
+        UserPage mainUser = new UserPage(userList);
+        mainUser.menu();
         return;
       case 0: // Exit
         System.out.printf("Exit\n");

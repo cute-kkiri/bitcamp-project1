@@ -1,20 +1,31 @@
-package vo;
+package bitcamp.project1.vo;
 
 import java.util.LinkedList;
-import Util.AccountCommand;
+import bitcamp.project1.Util.AccountCommand;
 
 public class User {
-
-  public AccountCommand ac = AccountCommand.getInstance();
+  public AccountCommand ac = AccountCommand.getInstance(this);
 
   // User-accountList
-  static LinkedList<Account> accountList = new LinkedList<Account>();
+  static LinkedList<Account> accountList;
   // priKey
   static int seqNo = 0;
   // ID (default OREO)
   String ID = "OREO";
   // PW (default 0000)
   String PW = "0000";
+
+
+  ///////////////////////////////////////////////////////////
+  /////////////////////// Constructor ///////////////////////
+  ///////////////////////////////////////////////////////////
+  // set default
+  public User() {
+    accountList = new LinkedList<Account>();
+  }
+
+
+
 
   ///////////////////////////////////////////////////////////
   ///////////////// public getter, setter ///////////////////
@@ -31,7 +42,7 @@ public class User {
     return seqNo;
   }
 
-  public int setNextSeqNo(int seqNo) {
+  public int setNextSeqNo() {
     return ++seqNo;
   }
 
@@ -52,5 +63,11 @@ public class User {
   }
 
 
+  public static LinkedList<Account> getAccountList() {
+    return accountList;
+  }
 
+  public static void setAccountList(LinkedList<Account> accountList) {
+    User.accountList = accountList;
+  }
 }// Class User END

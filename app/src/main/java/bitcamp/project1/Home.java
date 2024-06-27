@@ -1,12 +1,15 @@
-import Util.MenuCommand;
-import page.Menu;
+package bitcamp.project1;
 
-public class HomePage extends MenuCommand {
+import bitcamp.project1.Util.MenuCommand;
+import bitcamp.project1.page.Menu;
+
+public class Home extends MenuCommand {
 
   public static void main(String[] args) {
     Menu m = new Menu();
     m.menu();
+    
   }
 
 
-}// Class HomePage END
+}// Class Home END

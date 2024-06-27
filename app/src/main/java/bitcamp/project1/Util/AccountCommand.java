@@ -1,13 +1,14 @@
-package Util;
+package bitcamp.project1.Util;
 
 import java.util.Iterator;
 import java.util.LinkedList;
-import vo.Account;
+import bitcamp.project1.vo.Account;
+import bitcamp.project1.vo.User;
 
-public class AccountCommand {
+public class AccountCommand extends MenuCommand{
 
   // Test: User1(OREO)'s Account //////////////////////////////////////
-  public static LinkedList<Account> accountList = new LinkedList<Account>(); // User's Account List
+  static User user;
   static int total = 0;
 
   ///////////////////////////////////////////////////////////
@@ -16,10 +17,10 @@ public class AccountCommand {
   private static AccountCommand accountCmd;
 
   // setup AccountCommand Instance
-  public static AccountCommand getInstance() {
+  public static AccountCommand getInstance(User user) {
 
     if (accountCmd == null) {
-      accountCmd = new AccountCommand();
+      accountCmd = new AccountCommand(user);
     }
 
     return accountCmd;
@@ -33,28 +34,16 @@ public class AccountCommand {
 
 
   ///////////////////////////////////////////////////////////
-  ////////////////////// Dummy Account //////////////////////
+  /////////////////////// Constructor ///////////////////////
   ///////////////////////////////////////////////////////////
-  public void addAccountDummy() {
-    Account newAcc1 = new Account();
-    newAcc1.setAccount(-1400);
-    newAcc1.setDescription("Subway, .,");
-    accountList.add(newAcc1);
+  public AccountCommand(){
 
-    Account newAcc2 = new Account();
-    newAcc2.setAccount(-300);
-    newAcc2.setDescription("Bus/. .");
-    accountList.add(newAcc2);
-
-
-    Account newAcc3 = new Account();
-    newAcc3.setAccount(1000);
-    newAcc3.setDescription("get. .");
-    accountList.add(newAcc3);
-
-    setTotal();
   }
 
+  // set default
+  public AccountCommand(User user) {
+    this.user = user;
+  }
 
 
   ///////////////////////////////////////////////////////////
@@ -67,7 +56,7 @@ public class AccountCommand {
   // TOTAL: -700
   public String printAccount() {
     String str = "";
-    Iterator<Account> iter = accountList.iterator();
+    Iterator<Account> iter = user.getAccountList().iterator();
     Account crntAccount = null;
     int num;
 
@@ -88,7 +77,7 @@ public class AccountCommand {
 
   // count total
   private void setTotal() {
-    Iterator<Account> iter = accountList.iterator();
+    Iterator<Account> iter = user.getAccountList().iterator();
     Account crntAccount = null;
     total = 0;
 
@@ -127,7 +116,7 @@ public class AccountCommand {
     newAcc.setDescription(MenuCommand.getUserScannerStr());
 
     // add list
-    accountList.add(newAcc);
+    user.getAccountList().add(newAcc);
 
     // set total
     setTotal();
@@ -140,7 +129,7 @@ public class AccountCommand {
   ///////////////////////////////////////////////////////////
   public String printInfo() {
     String str = "";
-    Iterator<Account> iter = accountList.iterator();
+    Iterator<Account> iter = user.getAccountList().iterator();
     Account currentAccount = null;
 
     for (int selectNo = 1; iter.hasNext(); selectNo++) {
@@ -164,7 +153,7 @@ public class AccountCommand {
   ///////////////////////////////////////////////////////////
   public void editAccount(int accNo) {
     if (isValidateAccount(accNo)) {
-      Account acc = accountList.get(accNo - 1);
+      Account acc = user.getAccountList().get(accNo - 1);
       // set account
       System.out.printf("Account?");
       acc.setAccount(MenuCommand.getUserScannerInt());
@@ -183,7 +172,7 @@ public class AccountCommand {
   public void deleteAccount(int accNo) {
     if (isValidateAccount(accNo)) {
       // remove account
-      accountList.remove(accNo - 1);
+      user.getAccountList().remove(accNo - 1);
       // set total
       setTotal();
     }
@@ -195,8 +184,30 @@ public class AccountCommand {
   ///////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////
   private boolean isValidateAccount(int accNo) {
-    return (accNo > 0) && (accNo <= accountList.size()) ? true : false;
+    return (accNo > 0) && (accNo <= user.getAccountList().size()) ? true : false;
   }
 
 
+
+
+  ///////////////////////////////////////////////////////////
+  ///////////////// public getter, setter ///////////////////
+  ///////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////
+  //////////////////////////// -- ///////////////////////////
+  //////////////////////////// -- ///////////////////////////
+  //////////////////////////// -- ///////////////////////////
+  //////////////////////// ---------- ///////////////////////
+  ////////////////////////// ------ /////////////////////////
+  //////////////////////////// -- ///////////////////////////
+  ///////////////////////////////////////////////////////////
+
+
+  public static LinkedList<Account> getAccountList() {
+    return user.getAccountList();
+  }
+
+  public static void setAccountList(LinkedList<Account> accountList) {
+    user.setAccountList(accountList);
+  }
 }// Class AccountCommand END
