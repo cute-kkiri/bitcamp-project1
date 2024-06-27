@@ -8,6 +8,7 @@ public class Test1 {
 
     static void m1() {
         System.out.println("안뇽하싑네까. 오호호호홀라ㅏ라라랄라라!!! 지구최강 github👍");
+        System.out.println("010-7210-4276🫶");
     }
 
     static void m2(){
