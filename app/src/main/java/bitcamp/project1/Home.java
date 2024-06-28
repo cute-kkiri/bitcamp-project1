@@ -7,9 +7,9 @@ import bitcamp.project1.page.Menu;
 //    |
 //    | (*Not implemented)
 //    |
-//  [MenuCommand]         ->[UserCommand]         ->[UserPage]
-//  -subMenuName            -userList
-//  -menuSize)
+//  [MenuCommand]          ->[UserCommand]         ->[UserPage]
+//  -subMenuName             -userList
+//  -size
 //                        ->[AccountCommand]      ->[AccountPage]
 //                          -User
 //                          -total
@@ -17,8 +17,11 @@ import bitcamp.project1.page.Menu;
 //                                                    |
 //                                                    |
 //                                                  [Menu]
-//                                                  -(>>new UserList<<)
-
+//                                                  -(>>new static UserList<<)
+//                                                    |
+//                                                    |
+//                                                    |
+//                                                  [Home]
 
 //  <User Class>
 // -accountList   ----------------------------><Account Class>
