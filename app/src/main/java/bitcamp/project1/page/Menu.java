@@ -9,6 +9,8 @@ import bitcamp.project1.vo.User;
 
 public class Menu extends MenuCommand {
 
+  static LinkedList<User> userList = new LinkedList<User>();
+
 
 
   /************************************************/
@@ -24,6 +26,9 @@ public class Menu extends MenuCommand {
   ///////////////////////////////////////////////////////////
   // set default
   public Menu() {
+    DummyData.addUserDummy(userList);
+
+
     select = new LinkedList<String>();
     setSelectMenu();
   }
@@ -86,10 +91,6 @@ public class Menu extends MenuCommand {
 
   // Run Menu by MenuNo(1,2...0)
   private void selectMenu(int ans) {
-
-    LinkedList<User> userList = new LinkedList<User>();
-    DummyData.addUserDummy(userList);
-
     switch (ans) {
       case 1: // View Account(Test: Success)
         //Test: Waffle(seqNo:1)
