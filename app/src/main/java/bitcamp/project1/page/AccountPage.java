@@ -4,10 +4,10 @@ package bitcamp.project1.page;
 import java.util.LinkedList;
 
 import bitcamp.project1.Util.AccountCommand;
+import bitcamp.project1.Util.UserCommand;
 import bitcamp.project1.vo.User;
 
 public class AccountPage extends AccountCommand implements Page{
-  static User user;
   /************************************************/
 
   private void setSelectMenu() {
@@ -22,9 +22,35 @@ public class AccountPage extends AccountCommand implements Page{
   // set default
   public AccountPage(User user) {
       select = new LinkedList<String>();
-      this.user = user;
+      super.user = user;
       setSelectMenu();
   }
+  ///////////////////////////////////////////////////////////
+  ///////////////////// private Instance ////////////////////
+  ///////////////////////////////////////////////////////////
+  private static AccountPage accpg;
+
+  // setup UserCommand Instance
+  public static AccountPage getInstance(User user) {
+
+    if (accpg == null) {
+      accpg = new AccountPage(user);
+    }
+
+    return accpg;
+  }// Method getInstance END
+
+  // reset UserCommand Instance
+  public static void freeInstance() {
+    accpg = null;
+  }// Method freeInstance END
+
+
+
+
+
+
+
 
   ///////////////////////////////////////////////////////////
   ////////////////////////// Method /////////////////////////

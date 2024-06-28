@@ -64,11 +64,11 @@ public class UserCommand extends MenuCommand{
 
     // set account
     System.out.printf("ID?");
-    newUser.setID(MenuCommand.getUserScannerStr());
+    newUser.setID(getUserScannerStr());
 
     // set description
     System.out.printf("PW?");
-    newUser.setPW(MenuCommand.getUserScannerStr());
+    newUser.setPW(getUserScannerStr());
 
     newUser.setNextSeqNo();
     // add list
@@ -113,10 +113,10 @@ public class UserCommand extends MenuCommand{
       User user = this.userList.get(userNo - 1);
       // set account
       System.out.printf("ID?");
-      user.setID(MenuCommand.getUserScannerStr());
+      user.setID(getUserScannerStr());
       // set description
       System.out.printf("PW?");
-      user.setPW(MenuCommand.getUserScannerStr());
+      user.setPW(getUserScannerStr());
     }
   }
 

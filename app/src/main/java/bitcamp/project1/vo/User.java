@@ -1,5 +1,6 @@
 package bitcamp.project1.vo;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import bitcamp.project1.Util.AccountCommand;
 
@@ -7,13 +8,15 @@ public class User {
   public AccountCommand ac = AccountCommand.getInstance(this);
 
   // User-accountList
-  static LinkedList<Account> accountList;
+  LinkedList<Account> accountList;
   // priKey
   static int seqNo = 0;
   // ID (default OREO)
   String ID = "OREO";
   // PW (default 0000)
   String PW = "0000";
+
+  int total = 0;
 
 
   ///////////////////////////////////////////////////////////
@@ -26,7 +29,19 @@ public class User {
 
 
 
+  // count total
+  public void setTotal() {
+    Iterator<Account> iter = this.getAccountList().iterator();
+    Account crntAccount = null;
+    int buffTotal = 0;
 
+    for (; iter.hasNext();) {
+      crntAccount = iter.next();
+      buffTotal += crntAccount.getAccount();
+    }
+
+    this.total = buffTotal;
+  }
   ///////////////////////////////////////////////////////////
   ///////////////// public getter, setter ///////////////////
   ///////////////////////////////////////////////////////////
@@ -62,12 +77,14 @@ public class User {
     PW = pW;
   }
 
-
-  public static LinkedList<Account> getAccountList() {
+  public int getTotal() {
+    return total;
+  }
+  public LinkedList<Account> getAccountList() {
     return accountList;
   }
 
-  public static void setAccountList(LinkedList<Account> accountList) {
-    User.accountList = accountList;
+  public void setAccountList(LinkedList<Account> accountList) {
+    this.accountList = accountList;
   }
 }// Class User END

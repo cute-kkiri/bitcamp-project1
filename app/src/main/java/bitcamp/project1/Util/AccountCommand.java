@@ -1,15 +1,14 @@
 package bitcamp.project1.Util;
 
+import java.awt.desktop.SystemEventListener;
 import java.util.Iterator;
 import java.util.LinkedList;
 import bitcamp.project1.vo.Account;
 import bitcamp.project1.vo.User;
 
 public class AccountCommand extends MenuCommand{
-
   // Test: User1(OREO)'s Account //////////////////////////////////////
-  static User user;
-  static int total = 0;
+  protected User user;
 
   ///////////////////////////////////////////////////////////
   ///////////////////// private Instance ////////////////////
@@ -55,11 +54,13 @@ public class AccountCommand extends MenuCommand{
   // 3) +1000
   // TOTAL: -700
   public String printAccount() {
+    user.setTotal();
+
     String str = "";
     Iterator<Account> iter = user.getAccountList().iterator();
     Account crntAccount = null;
     int num;
-
+    int total = user.getTotal();
 
     for (int selectNo = 1; iter.hasNext(); selectNo++) {
       crntAccount = iter.next();
@@ -71,20 +72,9 @@ public class AccountCommand extends MenuCommand{
       str += String.format("\n");
     }
     // Total
+
     str += String.format(" TOTAL: %s\n", printAccountOpp(total));
     return str;
-  }
-
-  // count total
-  private void setTotal() {
-    Iterator<Account> iter = user.getAccountList().iterator();
-    Account crntAccount = null;
-    total = 0;
-
-    for (; iter.hasNext();) {
-      crntAccount = iter.next();
-      total += crntAccount.getAccount();
-    }
   }
 
   // print Number operator(+, -)
@@ -109,17 +99,15 @@ public class AccountCommand extends MenuCommand{
 
     // set account
     System.out.printf("Account?");
-    newAcc.setAccount(MenuCommand.getUserScannerInt());
+    newAcc.setAccount(getUserScannerInt());
 
     // set description
     System.out.printf("Description?");
-    newAcc.setDescription(MenuCommand.getUserScannerStr());
+    newAcc.setDescription(getUserScannerStr());
 
     // add list
     user.getAccountList().add(newAcc);
-
-    // set total
-    setTotal();
+    user.setTotal();
   }
 
 
@@ -156,12 +144,12 @@ public class AccountCommand extends MenuCommand{
       Account acc = user.getAccountList().get(accNo - 1);
       // set account
       System.out.printf("Account?");
-      acc.setAccount(MenuCommand.getUserScannerInt());
+      acc.setAccount(getUserScannerInt());
       // set description
       System.out.printf("Description?");
-      acc.setDescription(MenuCommand.getUserScannerStr());
+      acc.setDescription(getUserScannerStr());
       // set total
-      setTotal();
+      user.setTotal();
     }
   }
 
@@ -174,7 +162,7 @@ public class AccountCommand extends MenuCommand{
       // remove account
       user.getAccountList().remove(accNo - 1);
       // set total
-      setTotal();
+      user.setTotal();
     }
   }
 
@@ -202,12 +190,19 @@ public class AccountCommand extends MenuCommand{
   //////////////////////////// -- ///////////////////////////
   ///////////////////////////////////////////////////////////
 
+  public User getUser() {
+    return user;
+  }
 
-  public static LinkedList<Account> getAccountList() {
+  public void setUser(User user) {
+    this.user = user;
+  }
+
+  public LinkedList<Account> getAccountList() {
     return user.getAccountList();
   }
 
-  public static void setAccountList(LinkedList<Account> accountList) {
+  public void setAccountList(LinkedList<Account> accountList) {
     user.setAccountList(accountList);
   }
 }// Class AccountCommand END

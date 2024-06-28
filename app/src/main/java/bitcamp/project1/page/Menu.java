@@ -5,7 +5,9 @@ import java.util.LinkedList;
 import bitcamp.project1.DummyData;
 import bitcamp.project1.Util.MenuCommand;
 import bitcamp.project1.Util.UserCommand;
+import bitcamp.project1.vo.Account;
 import bitcamp.project1.vo.User;
+import org.checkerframework.checker.units.qual.A;
 
 public class Menu extends MenuCommand {
 
@@ -16,8 +18,8 @@ public class Menu extends MenuCommand {
   /************************************************/
 
   private void setSelectMenu() {
-    addSelect("View Account");
-    addSelect("User");
+    addSelect("가계부");
+    addSelect("거지들");
   }
 
   /************************************************/
@@ -27,7 +29,6 @@ public class Menu extends MenuCommand {
   // set default
   public Menu() {
     DummyData.addUserDummy(userList);
-
 
     select = new LinkedList<String>();
     setSelectMenu();
@@ -55,7 +56,7 @@ public class Menu extends MenuCommand {
   private String printTUI() {
     String str = "";
 
-    str += printMenu("TITLE");
+    str += printMenu("이달의 거지");
     str += setMenuSelect();
 
     return str;
@@ -88,18 +89,31 @@ public class Menu extends MenuCommand {
     return ans;
   }// Method getScanner END
 
-
+  UserPage mainUser = new UserPage(userList);
+  User testUser;
+  AccountPage mainAccount;
   // Run Menu by MenuNo(1,2...0)
   private void selectMenu(int ans) {
     switch (ans) {
       case 1: // View Account(Test: Success)
         //Test: Waffle(seqNo:1)
-        User testUser= userList.get(1);
-        AccountPage mainAccount = new AccountPage(testUser);
-        mainAccount.menu();
+        System.out.println(mainUser.printUser());
+
+        while(true) {
+          int index = getUserScannerInt();
+
+          if (index == 0) {
+            break;
+          }
+
+          testUser = userList.get(index-1);
+          mainAccount = new AccountPage(testUser);
+          mainAccount.menu();
+        }
+
         return;
       case 2: // User
-        UserPage mainUser = new UserPage(userList);
+//        UserPage mainUser = new UserPage(userList);
         mainUser.menu();
         return;
       case 0: // Exit
@@ -110,7 +124,5 @@ public class Menu extends MenuCommand {
     }
 
   }// Method menu END
-
-
 
 }// Class LogIn END

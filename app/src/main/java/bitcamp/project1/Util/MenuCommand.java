@@ -5,17 +5,17 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class MenuCommand {
-  protected static Scanner sc = new Scanner(System.in);
+  protected Scanner sc = new Scanner(System.in);
 
-  protected static int size = 0;// select Menu Size
-  protected static LinkedList<String> select; // select Menu Name List
+  protected int size = 0;// select Menu Size
+  protected LinkedList<String> select; // select Menu Name List
 
 
   ///////////////////////////////////////////////////////////
   ////////////////////////// Method /////////////////////////
   ///////////////////////////////////////////////////////////
   // print Menu
-  protected static String printMenu(String title) {
+  protected String printMenu(String title) {
     String str = "";
 
     // str += setMenuSpaceTitle();
@@ -29,7 +29,7 @@ public class MenuCommand {
   // +------------------------------------------+
   // | [TITLE ] |
   // +------------------------------------------+
-  protected static String setMenuTitle(String title) {
+  protected String setMenuTitle(String title) {
     String str = "";
 
 
@@ -47,7 +47,7 @@ public class MenuCommand {
 
 
 
-  protected static String setMenuSelect() {
+  protected String setMenuSelect() {
     String str = "";
     Iterator<String> selectList = select.iterator();
 
@@ -66,19 +66,19 @@ public class MenuCommand {
 
 
   // [ERROR message] if system.in doesn't get Number
-  protected static void printNumberFormatException() {
+  protected void printNumberFormatException() {
     System.out.println("[ERROR] Please enter the number as a number");
   }
 
 
   // [ERROR message] if system.in get over Number
-  protected static void printNumberLimitException() {
+  protected void printNumberLimitException() {
     System.out.printf("[ERROR] Please enter a valid key\n");
   }
 
 
   // Clean Console
-  protected static String setMenuSpaceTitle() {
+  protected String setMenuSpaceTitle() {
     String str = "";
     int SPACE = 6;
 
@@ -91,7 +91,7 @@ public class MenuCommand {
 
 
   // set Space(default (title_line_size: 14)*cnt/2)
-  private static String setMenuSpace() {
+  private String setMenuSpace() {
     String str = "";
     int width = (14 * size) / 2;
 
@@ -104,7 +104,7 @@ public class MenuCommand {
 
 
   // set Line(default title_line_size: 14)
-  private static String setMenuLine() {
+  private String setMenuLine() {
     String str = "";
 
     str += String.format("+");
@@ -123,24 +123,24 @@ public class MenuCommand {
   //////////////////////// Scanner //////////////////////////
   ///////////////////////////////////////////////////////////
 
-  protected static boolean isValidateScanner(int ans) {
+  protected boolean isValidateScanner(int ans) {
     return (ans >= 0) && (ans < size) ? true : false;
   }
 
   // (String)nextLine -> Integer
-  protected static int getUserScannerInt() {
+  protected int getUserScannerInt() {
     System.out.printf("> ");
     return Integer.parseInt(scanner());
   }
 
   // (String)nextLine -> String
-  protected static String getUserScannerStr() {
+  protected String getUserScannerStr() {
     System.out.printf("> ");
     return scanner();
   }
 
   // Scanner
-  protected static String scanner() {
+  protected String scanner() {
     return sc.nextLine();
   }
 
@@ -158,20 +158,20 @@ public class MenuCommand {
   //////////////////////////// -- ///////////////////////////
   ///////////////////////////////////////////////////////////
 
-  public static int getSize() {
+  public int getSize() {
     return size;
   }
 
-  public static LinkedList<String> getSelect() {
+  public LinkedList<String> getSelect() {
     return select;
   }
 
-  public static void addSelect(String selectName) {
+  public void addSelect(String selectName) {
     select.add(selectName);
     size += 1;
   }
 
-  public static void deleteSelect(int selectNo) {
+  public void deleteSelect(int selectNo) {
     select.remove(selectNo);
     size -= 1;
   }

@@ -4,14 +4,14 @@ import bitcamp.project1.Util.MenuCommand;
 import bitcamp.project1.page.Menu;
 //                                                  [page]
 //                                                    |
-//                                                    | (*Not implemented)
+//                                                    |
 //                                                    |
 //  [MenuCommand]          ->[UserCommand]         ->[UserPage]
 //  -subMenuName             -userList
 //  -size
 //                        ->[AccountCommand]      ->[AccountPage]
 //                          -User
-//                          -total
+//
 //                                                    |
 //                                                    |
 //                                                    |
@@ -27,6 +27,7 @@ import bitcamp.project1.page.Menu;
 // -seqNo(prikey)(*Not implemented)            -account
 // -ID                                         -description
 // -PW
+// -total
 
 public class Home {
   public static void main(String[] args) {
