@@ -26,7 +26,7 @@ import bitcamp.project1.page.Menu;
 // -ID                                         -description
 // -PW
 
-public class Home extends MenuCommand {
+public class Home {
   public static void main(String[] args) {
     Menu m = new Menu();
     m.menu();
