@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import bitcamp.project1.Util.AccountCommand;
 import bitcamp.project1.vo.User;
 
-public class AccountPage extends AccountCommand{
+public class AccountPage extends AccountCommand implements Page{
   static User user;
   /************************************************/
 
@@ -36,7 +36,7 @@ public class AccountPage extends AccountCommand{
 
 
   // Get User Scanner
-  private void getUserScanner() {
+  public void getUserScanner() {
     // default ans < 0
     int ans = -1;
 
@@ -54,6 +54,11 @@ public class AccountPage extends AccountCommand{
     }
 
   }// Method getUserScanner END
+
+  @Override
+  public int getScanner(int ans) {
+    return 0;
+  }
 
 
   // Set MenuNo(1,2...0) by UserScanner
@@ -76,7 +81,7 @@ public class AccountPage extends AccountCommand{
   //
   // [1] Create [2] Info [3] Edit [4] Delete [0] Exit
   // +--------------------------------------------------+
-  private String printTUI() {
+  public String printTUI() {
     String str = "";
 
     str += printMenu(user.getID());
@@ -88,7 +93,7 @@ public class AccountPage extends AccountCommand{
 
 
   // Run Menu by MenuNo(1,2...0)
-  private void selectMenu(int ans) {
+  public void selectMenu(int ans) {
 
     switch (ans) {
       case 1:// Create

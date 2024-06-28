@@ -7,7 +7,7 @@ import bitcamp.project1.vo.User;
 
 import java.util.LinkedList;
 
-public class UserPage extends UserCommand {
+public class UserPage extends UserCommand implements Page {
     static LinkedList<User> userList;
     /************************************************/
 
@@ -38,7 +38,7 @@ public class UserPage extends UserCommand {
 
 
     // Get User Scanner
-    private void getUserScanner() {
+    public void getUserScanner() {
         // default ans < 0
         int ans = -1;
 
@@ -57,6 +57,11 @@ public class UserPage extends UserCommand {
 
     }// Method getUserScanner END
 
+    @Override
+    public int getScanner(int ans) {
+        return 0;
+    }
+
 
     // Set MenuNo(1,2...0) by UserScanner
     private int setMenuNum(int ans) {
@@ -74,7 +79,7 @@ public class UserPage extends UserCommand {
 //
 //     [1] Create     [2] Info      [3] Edit      [4] Delete     [0] Exit
 //   +--------------------------------------------------------------------------------------------------+
-    private String printTUI() {
+    public String printTUI() {
         String str = "";
 
         str += printMenu("USER");
@@ -85,7 +90,7 @@ public class UserPage extends UserCommand {
 
 
     // Run Menu by MenuNo(1,2...0)
-    private void selectMenu(int ans) {
+    public void selectMenu(int ans) {
 
         switch (ans) {
             case 1:// Create
