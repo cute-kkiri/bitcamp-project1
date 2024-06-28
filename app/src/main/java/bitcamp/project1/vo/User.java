@@ -78,6 +78,7 @@ public class User {
   }
 
   public int getTotal() {
+    setTotal();
     return total;
   }
   public LinkedList<Account> getAccountList() {

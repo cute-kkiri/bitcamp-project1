@@ -82,7 +82,8 @@ public class UserPage extends UserCommand implements Page {
     public String printTUI() {
         String str = "";
 
-        str += printMenu("USER");
+        str += printMenu("거지들");
+        str += printUser();
         str += setMenuSelect();
 
         return str;
@@ -91,7 +92,6 @@ public class UserPage extends UserCommand implements Page {
 
     // Run Menu by MenuNo(1,2...0)
     public void selectMenu(int ans) {
-
         switch (ans) {
             case 1:// Create
                 addUser();
