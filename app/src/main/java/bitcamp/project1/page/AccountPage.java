@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import bitcamp.project1.Util.AccountCommand;
 import bitcamp.project1.vo.User;
 
-public class AccountPage extends AccountCommand {
+public class AccountPage extends AccountCommand{
   static User user;
   /************************************************/
 

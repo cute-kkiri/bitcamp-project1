@@ -1,4 +1,4 @@
-package bitcamp.project1.Util;
+package bitcamp.project1.page;
 
 public interface Page {
   void menu();

@@ -2,11 +2,10 @@ package bitcamp.project1;
 
 import bitcamp.project1.Util.MenuCommand;
 import bitcamp.project1.page.Menu;
-
-//  [page]
-//    |
-//    | (*Not implemented)
-//    |
+//                                                  [page]
+//                                                    |
+//                                                    | (*Not implemented)
+//                                                    |
 //  [MenuCommand]          ->[UserCommand]         ->[UserPage]
 //  -subMenuName             -userList
 //  -size
