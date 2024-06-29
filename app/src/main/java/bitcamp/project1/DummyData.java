@@ -44,7 +44,20 @@ public class DummyData {
         newUser0.setID("Cookie");
         newUser0.setPW("1234");
         addAccountDummy(newUser0);
+
+        Account newAcc = new Account();
+        newAcc.setAccount(500);
+        newAcc.setDescription("Cookie");
+        newUser0.addAccount(newAcc);
+        newUser0.setTotal();
+
+
         userList.add(newUser0);
+
+
+
+
+
 
 
         User newUser1 = new User();

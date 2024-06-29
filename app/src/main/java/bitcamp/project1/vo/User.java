@@ -88,4 +88,8 @@ public class User {
   public void setAccountList(LinkedList<Account> accountList) {
     this.accountList = accountList;
   }
+
+  public void addAccount(Account newAcc) {
+    this.accountList.add(newAcc);
+  }
 }// Class User END

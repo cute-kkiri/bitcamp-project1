@@ -35,16 +35,18 @@ public void menu(){
         UserCommand usercmd = UserCommand.getInstance();
         int maxUserNo = getMaxUserNo();
 
-        System.out.println("이달의 거지는");
-        loading(1000);
+        System.out.print("이달의 거지왕은");
+        loading(2000);
 
-
-        if(checkDuplicateKing(maxUserNo)&&usercmd.isValidateUser(maxUserNo)) {
+        if(checkDuplicateKing(maxUserNo)&&usercmd.isValidateUser(maxUserNo+1)) {
             AccountPage accountpg = AccountPage.getInstance(userList.get(maxUserNo));
 
             System.out.print(printTUI(maxUserNo));
             System.out.print(accountpg.printInfo());
+            System.out.print("\n\n");
         }
+    loading(7000);
+    System.out.print(setMenuSpaceTitle());
 }
 
     public String printTUI(int maxUserNo) {
@@ -52,21 +54,55 @@ public void menu(){
         String reset = "\033[0m";
         String bold = "\033[1m";
         String brightYellow = "\033[93m";
+        String brightCyan = "\033[96m";
+        String brown = "\033[0;33m";
+
+        String space="           ";
+        String spaceName="    ";
 
         User user = userList.get(maxUserNo);
 
-        str += bold+brightYellow;
-        str += String.format("        /\\     /\\     /\\\n" );
-        str += String.format("       /  \\   /  \\   /  \\\n" );
-        str += String.format("      /    \\ /    \\ /    \\\n" );
-        str += String.format("     /      \\      \\      \\\n" );
-        str += String.format("    /                        \\\n" );
-        str += String.format("   /         %6s        \\\n", user.getID() );
-        str += String.format("  /_____________________________\\\n" );
+        str += bold+brown;
+        str += space+"      /\\         /\\         /\\\n";
+        str += space+"     /  \\       /  \\       /  \\\n";
+        str += space+"    /    \\     /    \\     /    \\\n";
+        str += space+"   /      \\   /      \\   /      \\\n";
+        str += space+"  /        \\ /        \\ /        \\\n";
+        str += space+" /                                \\\n";
+        str += space+"\\           이달의 거지왕          / \n";
+        str += space+" \\            ";
+        str += brightCyan;
+        str += String.format("%8s",user.getID());
         str += reset;
-        str += String.format("[%s]님 축하드립니다!!!\n", user.getID());
+        str += bold+brown;
+        str += "            /\n";
+        str += space+"  \\                              / \n";
+        str += space+"    =============================\n";
+        str += reset;
+
+
+        str += bold+brightYellow;
+        str += "。.。:+* ゜ ゜゜ *+:。.。:+* ゜ ゜゜ *+:。.。.。:+* ゜ ゜゜\n";
+        str += reset;
+
+
+        str += brightCyan;
+        str += String.format("\n");
+        str += spaceName+spaceName+spaceName+spaceName;
+        str += String.format("%s", user.getID());
+        str += reset;
+        str += String.format("님 축하드립니다!!!\n", user.getID());
+        str += spaceName;
         str += String.format("이번달 총 지출 %d원으로 최우수 거지가 되셨습니다.\n", user.getTotal());
         str += String.format("\n");
+
+
+        str += bold+brightYellow;
+        str += "。.。:+* ゜ ゜゜ *+:。.。:+* ゜ ゜゜ *+:。.。.。:+* ゜ ゜゜\n";
+        str += reset;
+        str += String.format("\n");
+
+
         str += String.format("%s님의 이번달 지출 내역입니다. \n", user.getID());
 
 
@@ -81,9 +117,13 @@ public void menu(){
     }
 
     public void loading(long time){
+        long sz = time/1000;
         try {
-            System.out.println("... ");
-            Thread.sleep(time);
+            for(int i=0;i<sz;i++) {
+                System.out.print(".");
+                Thread.sleep(time/sz);
+            }
+            System.out.print("\n");
         } catch (InterruptedException e) {
             // TODO Auto-generated catch block
             // e.printStackTrace();

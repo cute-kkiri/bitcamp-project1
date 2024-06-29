@@ -168,19 +168,28 @@ public class Menu extends MenuCommand {
     switch (ans) {
       case 1: // View Account
         printListUserLiset();
-        return;
+        menu();
+        break;
       case 2: // View User List
         UserPage mainUser = UserPage.getInstance();
         mainUser.menu();
         menu();
-        return;
+        break;
       case 3: // View get Money King
         MoneyKingPage mainMoneyKing = MoneyKingPage.getInstance();
         mainMoneyKing.menu();
-        return;
+
+
+
+
+        System.out.print(printKing());
+        System.out.print(printTUI());
+
+
+        break;
       case 0: // Exit
-        System.out.printf("Exit\n");
-        return;
+//        System.out.printf("Exit\n");
+        break;
       default:
         printNumberLimitException();
     }
@@ -196,23 +205,25 @@ public class Menu extends MenuCommand {
 
   public void printListUserLiset(){
     UserCommand usercmd = UserCommand.getInstance();
+    int index = -1;
 
-    while (true) {
+    for(;;) {
       printUserList();
       System.out.println("0을 입력하면 메인 메뉴로 돌아갑니다.");
-      int index = getUserScannerInt();
-
+      index = getUserScannerInt();
 
       if(usercmd.isValidateUser(index)){
         AccountPage mainAccount = new AccountPage(userList.get(index - 1));
         mainAccount.menu();
+        return;
       }
-      else{
-        printNumberLimitException();
-        continue;
+
+      if(index == 0){
+        return;
       }
-      menu();
-      return;
+
+      printNumberLimitException();
+
     }
 
 

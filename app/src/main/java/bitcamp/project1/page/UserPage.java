@@ -54,6 +54,7 @@ public class UserPage extends UserCommand implements Page {
     // Run Default Menu
     public void menu() {
         getUserScanner();
+        System.out.print(setMenuSpaceTitle());
     }// Method menu END
 
 
@@ -105,7 +106,7 @@ public class UserPage extends UserCommand implements Page {
     public String printTUI() {
         String str = "";
 
-        str += printMenu("거지들");
+        str += printMenu("The future kings");
         str += printUser();
         str += setMenuSelect();
 

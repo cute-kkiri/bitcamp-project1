@@ -41,11 +41,10 @@ public class MenuCommand {
     String brown = "\033[0;38;2;139;69;19m";
     String str = "";
 
-    str += setMenuSpaceTitle();
     str += String.format(setMenuLine());
     str += String.format("|");
     str += setMenuSpace();
-    str += String.format("[%-12s]", title);
+    str += String.format("[%-16s]", title);
     str += setMenuSpace();
     str += String.format("|");
     str += String.format("\n");
@@ -89,7 +88,7 @@ public class MenuCommand {
   // Clean Console
   protected String setMenuSpaceTitle() {
     String str = "";
-    int SPACE = 6;
+    int SPACE = 50;
 
     for (int selectNo = 1; selectNo <= SPACE; selectNo++) {
       str += String.format("\n", " ");
@@ -118,7 +117,7 @@ public class MenuCommand {
 
     str += String.format("+");
     for (int selectNo = 0; selectNo <= SIZE; selectNo++) {
-      str += String.format("-----------------");
+      str += String.format("------------------");
     }
     str += String.format("+");
     str += String.format("\n");

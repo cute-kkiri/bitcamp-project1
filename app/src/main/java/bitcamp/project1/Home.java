@@ -36,6 +36,23 @@ public class Home {
     DummyData.addUserDummy(UserCommand.userList);
     Menu m = new Menu();
 
+    System.out.print(printPojectName());
+
     m.menu();
+  }
+
+
+  public static String printPojectName(){
+    String str ="";
+
+    str+="\n\n";
+    str+="· ··÷¦÷·· ·· ··÷¦÷·· ·· ··÷¦÷·· ·\n";
+    str+="     <<<< MONEY KING >>>>\n";
+    str+="    💵 팀명: 미래의 부자들\n";
+    str+="    💵 팀원: 장혜정 이선아\n";
+    str+="· ··÷¦÷·· ·· ··÷¦÷·· ·· ··÷¦÷·· ·\n";
+    str+="\n\n";
+
+    return str;
   }
 }// Class Home END

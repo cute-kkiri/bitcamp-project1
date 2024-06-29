@@ -58,6 +58,7 @@ public class AccountPage extends AccountCommand implements Page{
   // Run Default Menu
   public void menu() {
     getUserScanner();
+    System.out.print(setMenuSpaceTitle());
   }// Method menu END
 
 
@@ -120,7 +121,6 @@ public class AccountPage extends AccountCommand implements Page{
 
   // Run Menu by MenuNo(1,2...0)
   public void selectMenu(int ans) {
-
     switch (ans) {
       case 1:// Create
         addAccount();
@@ -137,7 +137,7 @@ public class AccountPage extends AccountCommand implements Page{
         deleteAccount(getUserScannerInt());
         return;
       case 0:// Exit
-        System.out.printf("Exit\n");
+//        System.out.printf("Exit\n");
         return;
       default:
         printNumberLimitException();
