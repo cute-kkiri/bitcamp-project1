@@ -5,8 +5,10 @@ import bitcamp.project1.Util.UserCommand;
 import bitcamp.project1.vo.User;
 
 import static bitcamp.project1.page.UserPage.userList;
+import static bitcamp.project1.vo.Menu.*;
 
 public class MoneyKingPage extends MoneyKingPageCommand implements Page  {
+
     ///////////////////////////////////////////////////////////
     ///////////////////// private Instance ////////////////////
     ///////////////////////////////////////////////////////////
@@ -31,34 +33,49 @@ public class MoneyKingPage extends MoneyKingPageCommand implements Page  {
 
 
 
-public void menu(){
-        UserCommand usercmd = UserCommand.getInstance();
-        int maxUserNo = getMaxUserNo();
+
+
+
+    ///////////////////////////////////////////////////////////
+    ////////////////////////// Method /////////////////////////
+    ///////////////////////////////////////////////////////////
+
+    //main Menu
+    public void menu(){
+        printKing();
+    }
+
+    //print King
+    private void printKing(){
+
 
         System.out.print("이달의 거지왕은");
         loading(2000);
+        printResult();
+        loading(7000);
+        System.out.print(setMenuSpaceTitle());
+    }
 
-        if(checkDuplicateKing(maxUserNo)&&usercmd.isValidateUser(maxUserNo+1)) {
+    //print Result
+    private void printResult(){
+        UserCommand usercmd = UserCommand.getInstance();
+        int maxUserNo = getMaxUserNo();
+
+        // Check isValidateUser && DuplicateKing
+        if(usercmd.isValidateUser(maxUserNo+1)&&checkDuplicateKing(maxUserNo)) {
             AccountPage accountpg = AccountPage.getInstance(userList.get(maxUserNo));
 
-            System.out.print(printTUI(maxUserNo));
+            System.out.print(printKingTUI(maxUserNo));
             System.out.print(accountpg.printInfo());
             System.out.print("\n\n");
         }
-    loading(7000);
-    System.out.print(setMenuSpaceTitle());
-}
+    }
 
-    public String printTUI(int maxUserNo) {
+
+    //print King TUI
+    private String printKingTUI(int maxUserNo) {
         String str = "";
-        String reset = "\033[0m";
-        String bold = "\033[1m";
-        String brightYellow = "\033[93m";
-        String brightCyan = "\033[96m";
-        String brown = "\033[0;33m";
-
         String space="           ";
-        String spaceName="    ";
 
         User user = userList.get(maxUserNo);
 
@@ -88,11 +105,11 @@ public void menu(){
 
         str += brightCyan;
         str += String.format("\n");
-        str += spaceName+spaceName+spaceName+spaceName;
+        str += "                ";
         str += String.format("%s", user.getID());
         str += reset;
         str += String.format("님 축하드립니다!!!\n", user.getID());
-        str += spaceName;
+        str += "    ";
         str += String.format("이번달 총 지출 %d원으로 최우수 거지가 되셨습니다.\n", user.getTotal());
         str += String.format("\n");
 
@@ -103,20 +120,11 @@ public void menu(){
         str += String.format("\n");
 
 
-        str += String.format("%s님의 이번달 지출 내역입니다. \n", user.getID());
-
-
-
         return str;
     }
 
-
-    @Override
-    public String printTUI() {
-        return "";
-    }
-
-    public void loading(long time){
+    //loading (...)
+    private void loading(long time){
         long sz = time/1000;
         try {
             for(int i=0;i<sz;i++) {
@@ -128,6 +136,11 @@ public void menu(){
             // TODO Auto-generated catch block
             // e.printStackTrace();
         }
+    }
+
+    @Override
+    public String printTUI() {
+        return "";
     }
 
     @Override
@@ -145,4 +158,4 @@ public void menu(){
 
     }
 
-}
+}//Class MoneyKingPage END

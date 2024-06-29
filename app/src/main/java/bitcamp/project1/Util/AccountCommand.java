@@ -1,10 +1,12 @@
 package bitcamp.project1.Util;
 
-import java.awt.desktop.SystemEventListener;
 import java.util.Iterator;
 import java.util.LinkedList;
 import bitcamp.project1.vo.Account;
 import bitcamp.project1.vo.User;
+
+import static bitcamp.project1.vo.Menu.brightCyan;
+import static bitcamp.project1.vo.Menu.reset;
 
 public class AccountCommand extends MenuCommand{
   // Test: User1(OREO)'s Account //////////////////////////////////////
@@ -73,7 +75,9 @@ public class AccountCommand extends MenuCommand{
     }
     // Total
 
+    str += brightCyan;
     str += String.format(" TOTAL: %s\n", printAccountOpp(total));
+    str += reset;
     return str;
   }
 

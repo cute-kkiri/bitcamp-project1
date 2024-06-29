@@ -21,9 +21,7 @@ public class MenuCommand {
   protected String printMenu(String title) {
     String str = "";
 
-    // str += setMenuSpaceTitle();
     str += setMenuTitle(title);
-
     return str;
   }
 
@@ -54,7 +52,8 @@ public class MenuCommand {
   }
 
 
-
+  // print Select Menu
+  // [1] Create [2] Info [3] Edit [4] Delete [0] Exit
   protected String setMenuSelect() {
     String str = "";
     Iterator<String> selectList = select.iterator();
@@ -126,6 +125,7 @@ public class MenuCommand {
   }
 
 
+  // print userList Title
   protected void printUserList() {
     UserPage userpage = (UserPage) UserPage.getInstance();
     System.out.print(setMenuLine());

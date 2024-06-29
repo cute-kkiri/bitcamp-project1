@@ -8,6 +8,10 @@ import static bitcamp.project1.Util.UserCommand.userList;
 
 public class MoneyKingPageCommand extends MenuCommand {
 
+    ///////////////////////////////////////////////////////////
+    ////////////////////////// Method /////////////////////////
+    ///////////////////////////////////////////////////////////
+    //Max UserNo
     public int getMaxUserNo(){
         // get userNo(0)'s Total
         int max = userList.getFirst().getTotal();

@@ -3,8 +3,9 @@ package bitcamp.project1.page;
 import java.util.LinkedList;
 import bitcamp.project1.Util.MenuCommand;
 import bitcamp.project1.Util.UserCommand;
-import bitcamp.project1.vo.User;
+
 import static bitcamp.project1.page.UserPage.userList;
+import static bitcamp.project1.vo.Menu.*;
 
 public class Menu extends MenuCommand {
 
@@ -43,66 +44,51 @@ public class Menu extends MenuCommand {
   }// Method menu END
 
 
+  //print Main Title
   public String printKing(){
-    String reset = "\033[0m";
-    String bold = "\033[1m";
-    String yellow = "\033[33m";
-    String brightYellow = "\033[93m";
-    String backgroundYellow = "\033[103m";
-    String brown = "\033[0;33m";
-
     String str ="";
 
-
-    str += setLine();
-    str += setKing();
-    str += setLine();
+    str += printLine();
+    str += printKingTUI();
+    str += printLine();
 
     return str;
   }
 
-  public String setKing(){
+  //print King TUI
+  public String printKingTUI(){
     String str = "";
-    String reset = "\033[0m";
-    String bold = "\033[1m";
-    String brightYellow = "\033[93m";
 
-    String kingColor = bold+brightYellow;
 
     str += bold+brightYellow;
-
     str += String.format("  ___  ___ _____  _   _  _____ __   __     _   __ _____  _   _  _____      "           +"\n" );
     str += String.format("  |  \\/  ||  _  || \\ | ||  ___|\\ \\ / /    | | / /|_   _|| \\ | ||  __ \\     "         +"\n" );
     str += String.format("  | .  . || | | ||  \\| || |__   \\ V /     | |/ /   | |  |  \\| || |  \\/     "         +"\n" );
     str += String.format("  | |\\/| || | | || . ` ||  __|   \\ /      |    \\   | |  | . ` || | __      "          +"\n" );
     str += String.format("  | |  | |\\ \\_/ /| |\\  || |___   | |      | |\\  \\ _| |_ | |\\  || |_\\ \\     "      +"\n" );
     str += String.format("  \\_|  |_/ \\___/ \\_| \\_/\\____/   \\_/      \\_| \\_/ \\___/ \\_| \\_/ \\____/     "     +"\n" );
-
-    str += String.format("                                      " + "\n");
+    str += String.format("\n");
     str += reset;
 
     return str;
   }
 
-  public String setLine(){
-    String reset = "\033[0m";
-    String backgroundYellow = "\033[103m";
-    String brown = "\033[0;33m";
+  //print Line
+  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  public String printLine(){
     String str="";
 
     str += brown+backgroundYellow;
     str += String.format("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
     str += reset;
-
     str += String.format("\n");
 
     return str;
   }
 
-  public String setBlock(){
-    String reset = "\033[0m";
-    String backgroundYellow = "\033[103m";
-    String brown = "\033[0;33m";
+  //print Block
+  //+
+  public String printBlock(){
     String str="";
 
     str += brown+backgroundYellow;
@@ -124,7 +110,6 @@ public class Menu extends MenuCommand {
   private String printTUI() {
     String str = "";
 
-//    str += printMenu("이달의 거지");
     str += setMenuSelect();
 
     return str;
@@ -178,14 +163,8 @@ public class Menu extends MenuCommand {
       case 3: // View get Money King
         MoneyKingPage mainMoneyKing = MoneyKingPage.getInstance();
         mainMoneyKing.menu();
-
-
-
-
         System.out.print(printKing());
         System.out.print(printTUI());
-
-
         break;
       case 0: // Exit
 //        System.out.printf("Exit\n");
