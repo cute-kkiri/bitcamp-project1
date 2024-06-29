@@ -3,21 +3,22 @@ package bitcamp.project1.Util;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-import bitcamp.project1.vo.Account;
+import bitcamp.project1.DummyData;
 import bitcamp.project1.vo.User;
 
 public class UserCommand extends MenuCommand{
-  static LinkedList<User> userList;
+  public static LinkedList<User> userList = new LinkedList<User>();
+
   ///////////////////////////////////////////////////////////
   ///////////////////// private Instance ////////////////////
   ///////////////////////////////////////////////////////////
   private static UserCommand userCmd;
 
   // setup UserCommand Instance
-  public static UserCommand getInstance(LinkedList<User> userList) {
+  public static UserCommand getInstance() {
 
     if (userCmd == null) {
-      userCmd = new UserCommand(userList);
+      userCmd = new UserCommand();
     }
 
     return userCmd;
@@ -38,16 +39,7 @@ public class UserCommand extends MenuCommand{
   /////////////////////// Constructor ///////////////////////
   ///////////////////////////////////////////////////////////
   public UserCommand(){
-
   }
-
-
-  public UserCommand(LinkedList<User> userList){
-    this.userList = userList;
-  }
-
-
-
 
 
   ///////////////////////////////////////////////////////////
@@ -72,7 +64,7 @@ public class UserCommand extends MenuCommand{
 
     newUser.setNextSeqNo();
     // add list
-    this.userList.add(newUser);
+    userList.add(newUser);
   }
 
 
@@ -84,7 +76,7 @@ public class UserCommand extends MenuCommand{
   ///////////////////////////////////////////////////////////
   public String printUser(){
     String str = "";
-    Iterator<User> iter = this.userList.iterator();
+    Iterator<User> iter = userList.iterator();
     User currentUser = null;
 
     for (int selectNo = 1; iter.hasNext(); selectNo++) {
@@ -135,7 +127,7 @@ public class UserCommand extends MenuCommand{
   }
 
 
-  private boolean isValidateUser(int userNo) {
+  public boolean isValidateUser(int userNo) {
     return (userNo > 0) && (userNo <= this.userList.size()) ? true : false;
   }
   ///////////////////////////////////////////////////////////

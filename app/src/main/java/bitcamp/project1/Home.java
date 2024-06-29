@@ -1,13 +1,14 @@
 package bitcamp.project1;
 
 import bitcamp.project1.Util.MenuCommand;
+import bitcamp.project1.Util.UserCommand;
 import bitcamp.project1.page.Menu;
 //                                                  [page]
 //                                                    |
 //                                                    |
 //                                                    |
 //  [MenuCommand]          ->[UserCommand]         ->[UserPage]
-//  -subMenuName             -userList
+//  -subMenuName             -(static)userList
 //  -size
 //                        ->[AccountCommand]      ->[AccountPage]
 //                          -User
@@ -16,7 +17,7 @@ import bitcamp.project1.page.Menu;
 //                                                    |
 //                                                    |
 //                                                  [Menu]
-//                                                  -(>>new static UserList<<)
+//
 //                                                    |
 //                                                    |
 //                                                    |
@@ -31,7 +32,10 @@ import bitcamp.project1.page.Menu;
 
 public class Home {
   public static void main(String[] args) {
+    //DummyData
+    DummyData.addUserDummy(UserCommand.userList);
     Menu m = new Menu();
+
     m.menu();
   }
 }// Class Home END

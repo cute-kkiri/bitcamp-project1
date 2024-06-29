@@ -1,33 +1,53 @@
 package bitcamp.project1.page;
 
-import bitcamp.project1.Util.AccountCommand;
-import bitcamp.project1.Util.MenuCommand;
 import bitcamp.project1.Util.UserCommand;
-import bitcamp.project1.vo.User;
 
 import java.util.LinkedList;
 
 public class UserPage extends UserCommand implements Page {
-    static LinkedList<User> userList;
     /************************************************/
 
     private void setSelectMenu() {
-        addSelect("Create");
-        addSelect("Info");
-        addSelect("Edit");
-        addSelect("Delete");
+        addSelect("추가");
+        addSelect("상세");
+        addSelect("수정");
+        addSelect("삭제");
     }
 
     /************************************************/
+    ///////////////////////////////////////////////////////////
+    ///////////////////// private Instance ////////////////////
+    ///////////////////////////////////////////////////////////
+    private static UserPage userpg;
 
+    // setup UserCommand Instance
+    public static UserPage getInstance() {
+
+        if (userpg == null) {
+            userpg = new UserPage();
+        }
+
+        return userpg;
+    }// Method getInstance END
+
+    // reset UserCommand Instance
+    public static void freeInstance() {
+        userpg = null;
+    }// Method freeInstance END
+
+
+
+    ///////////////////////////////////////////////////////////
+    /////////////////////// Constructor ///////////////////////
+    ///////////////////////////////////////////////////////////
     // set default
-    public UserPage(LinkedList<User> userList) {
+    public UserPage() {
         select = new LinkedList<String>();
-        this.userList = userList;
         setSelectMenu();
-
-        UserCommand uc = UserCommand.getInstance(this.userList);
     }
+
+
+
     ///////////////////////////////////////////////////////////
     ////////////////////////// Method /////////////////////////
     ///////////////////////////////////////////////////////////
@@ -43,9 +63,12 @@ public class UserPage extends UserCommand implements Page {
         int ans = -1;
 
         // until right answer
-        // while (!isValidateScanner(ans)) {
-        while (ans != 0) {
+//        while (ans != 0) {
+         while (!isValidateScanner(ans)) {
             try {
+                if(ans == 0){
+                    return;
+                }
                 // Print Menu List until AccountPage
                 System.out.print(printTUI());
                 ans = setMenuNum(ans);

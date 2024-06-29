@@ -1,5 +1,7 @@
 package bitcamp.project1.Util;
 
+import bitcamp.project1.page.UserPage;
+
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -8,6 +10,7 @@ public class MenuCommand {
   protected Scanner sc = new Scanner(System.in);
 
   protected int size = 0;// select Menu Size
+  private final int SIZE = 3;
   protected LinkedList<String> select; // select Menu Name List
 
 
@@ -30,9 +33,15 @@ public class MenuCommand {
   // | [TITLE ] |
   // +------------------------------------------+
   protected String setMenuTitle(String title) {
+    String reset = "\033[0m";
+    String bold = "\033[1m";
+    String yellow = "\033[33m";
+    String brightYellow = "\033[93m";
+    String backgroundYellow = "\033[103m";
+    String brown = "\033[0;38;2;139;69;19m";
     String str = "";
 
-
+    str += setMenuSpaceTitle();
     str += String.format(setMenuLine());
     str += String.format("|");
     str += setMenuSpace();
@@ -57,7 +66,7 @@ public class MenuCommand {
       str += String.format("[%1d] %-5s%5s", selectNo, selectList.next(), " ");
     }
     // print Exit(default key 0)
-    str += String.format("[0] %-5s%5s", "Exit", " ");
+    str += String.format("\033[91m[0] %-5s%5s", "종료\033[0m", " ");
     str += String.format("\n");
     str += String.format(setMenuLine());
 
@@ -93,7 +102,7 @@ public class MenuCommand {
   // set Space(default (title_line_size: 14)*cnt/2)
   private String setMenuSpace() {
     String str = "";
-    int width = (14 * size) / 2;
+    int width = (18 * SIZE) / 2;
 
     for (int selectNo = 1; selectNo <= width; selectNo++) {
       str += String.format("%s", " ");
@@ -103,13 +112,13 @@ public class MenuCommand {
   }
 
 
-  // set Line(default title_line_size: 14)
+  // set Line(default title_line_size: 18)
   private String setMenuLine() {
     String str = "";
 
     str += String.format("+");
-    for (int selectNo = 0; selectNo <= size; selectNo++) {
-      str += String.format("--------------");
+    for (int selectNo = 0; selectNo <= SIZE; selectNo++) {
+      str += String.format("-----------------");
     }
     str += String.format("+");
     str += String.format("\n");
@@ -117,6 +126,14 @@ public class MenuCommand {
     return str;
   }
 
+
+  protected void printUserList() {
+    UserPage userpage = (UserPage) UserPage.getInstance();
+    System.out.print(setMenuLine());
+    System.out.println("[거지 목록]");
+    System.out.printf(userpage.printUser());
+    System.out.print(setMenuLine());
+  }
 
 
   ///////////////////////////////////////////////////////////

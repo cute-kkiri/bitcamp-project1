@@ -11,10 +11,10 @@ public class AccountPage extends AccountCommand implements Page{
   /************************************************/
 
   private void setSelectMenu() {
-    addSelect("Create");
-    addSelect("Info");
-    addSelect("Edit");
-    addSelect("Delete");
+    addSelect("기록");
+    addSelect("상세");
+    addSelect("수정");
+    addSelect("삭제");
   }
 
   /************************************************/

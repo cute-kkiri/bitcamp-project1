@@ -1,18 +1,13 @@
 package bitcamp.project1.page;
 
-import java.util.Iterator;
 import java.util.LinkedList;
-
-import bitcamp.project1.DummyData;
 import bitcamp.project1.Util.MenuCommand;
 import bitcamp.project1.Util.UserCommand;
-import bitcamp.project1.vo.Account;
 import bitcamp.project1.vo.User;
-import org.checkerframework.checker.units.qual.A;
+import static bitcamp.project1.page.UserPage.userList;
 
 public class Menu extends MenuCommand {
 
-  static LinkedList<User> userList = new LinkedList<User>();
 
 
 
@@ -25,13 +20,12 @@ public class Menu extends MenuCommand {
   }
 
   /************************************************/
+
   ///////////////////////////////////////////////////////////
   /////////////////////// Constructor ///////////////////////
   ///////////////////////////////////////////////////////////
   // set default
   public Menu() {
-    DummyData.addUserDummy(userList);
-
     select = new LinkedList<String>();
     setSelectMenu();
   }
@@ -43,9 +37,81 @@ public class Menu extends MenuCommand {
   ///////////////////////////////////////////////////////////
   // Run Default Menu
   public void menu() {
+    System.out.print(printKing());
     System.out.print(printTUI());
     getUserScanner();
   }// Method menu END
+
+
+  public String printKing(){
+    String reset = "\033[0m";
+    String bold = "\033[1m";
+    String yellow = "\033[33m";
+    String brightYellow = "\033[93m";
+    String backgroundYellow = "\033[103m";
+    String brown = "\033[0;33m";
+
+    String str ="";
+
+
+    str += setLine();
+    str += setKing();
+    str += setLine();
+
+    return str;
+  }
+
+  public String setKing(){
+    String str = "";
+    String reset = "\033[0m";
+    String bold = "\033[1m";
+    String brightYellow = "\033[93m";
+
+    String kingColor = bold+brightYellow;
+
+    str += bold+brightYellow;
+
+    str += String.format("  ___  ___ _____  _   _  _____ __   __     _   __ _____  _   _  _____      "           +"\n" );
+    str += String.format("  |  \\/  ||  _  || \\ | ||  ___|\\ \\ / /    | | / /|_   _|| \\ | ||  __ \\     "         +"\n" );
+    str += String.format("  | .  . || | | ||  \\| || |__   \\ V /     | |/ /   | |  |  \\| || |  \\/     "         +"\n" );
+    str += String.format("  | |\\/| || | | || . ` ||  __|   \\ /      |    \\   | |  | . ` || | __      "          +"\n" );
+    str += String.format("  | |  | |\\ \\_/ /| |\\  || |___   | |      | |\\  \\ _| |_ | |\\  || |_\\ \\     "      +"\n" );
+    str += String.format("  \\_|  |_/ \\___/ \\_| \\_/\\____/   \\_/      \\_| \\_/ \\___/ \\_| \\_/ \\____/     "     +"\n" );
+
+    str += String.format("                                      " + "\n");
+    str += reset;
+
+    return str;
+  }
+
+  public String setLine(){
+    String reset = "\033[0m";
+    String backgroundYellow = "\033[103m";
+    String brown = "\033[0;33m";
+    String str="";
+
+    str += brown+backgroundYellow;
+    str += String.format("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+    str += reset;
+
+    str += String.format("\n");
+
+    return str;
+  }
+
+  public String setBlock(){
+    String reset = "\033[0m";
+    String backgroundYellow = "\033[103m";
+    String brown = "\033[0;33m";
+    String str="";
+
+    str += brown+backgroundYellow;
+    str += String.format("+");
+    str += reset;
+
+    return str;
+  }
+
 
 
   // Print TUI
@@ -58,7 +124,7 @@ public class Menu extends MenuCommand {
   private String printTUI() {
     String str = "";
 
-    str += printMenu("이달의 거지");
+//    str += printMenu("이달의 거지");
     str += setMenuSelect();
 
     return str;
@@ -91,74 +157,27 @@ public class Menu extends MenuCommand {
     return ans;
   }// Method getScanner END
 
-  UserPage mainUser = new UserPage(userList);
-  User testUser;
-  AccountPage mainAccount;;
+
+
+
+
+
   // Run Menu by MenuNo(1,2...0)
   private void selectMenu(int ans) {
+
     switch (ans) {
-      case 1: // View Account(Test: Success)
-        //Test: Waffle(seqNo:1)
-
-        AccountPage mainAccount;
-
-        printUser(mainUser);
-
-        while (true) {
-          System.out.println("0을 입력하면 메인 메뉴로 돌아갑니다.");
-          int index = getUserScannerInt();
-
-          if (index == 0) {
-            menu();
-            return;
-          }
-
-          if (index > 0 && index <= userList.size()) {
-            testUser = userList.get(index - 1);
-            mainAccount = new AccountPage(testUser);
-            mainAccount.menu();
-          } else {
-            System.out.println("유효한 사용자 번호를 입력하세요.");
-          }
-
-          // 사용자 목록 다시 출력
-          printUser(mainUser);
-        }
-      case 2: // User
+      case 1: // View Account
+        printListUserLiset();
+        return;
+      case 2: // View User List
+        UserPage mainUser = UserPage.getInstance();
         mainUser.menu();
-            menu();
-            return;
-      case 3:
-//        int max = 0;
-        int max = 0;
-        int maxUserNo = 0;
-        for(int i = 0; i < userList.size(); i++) {
-          if (userList.get(i).getTotal() > max) {
-            max = userList.get(i).getTotal();
-            maxUserNo = i;
-          }
-        }
-        for(int i = 0; i < userList.size(); i++) {
-          if (i!=maxUserNo&&(max == userList.get(i).getTotal())) {
-            System.out.println("이달의 최우수 거지가 없습니다.");
-            return;
-          }
-        }
-
-        System.out.println("이달의 거지는");
-        try {
-          System.out.println("... ");
-          Thread.sleep(1000);
-        } catch (InterruptedException e) {
-          // TODO Auto-generated catch block
-          // e.printStackTrace();
-        }
-        String king = userList.get(maxUserNo).getID();
-        System.out.println(printKing(king));
-//        System.out.println("이달의 ✌\uFE0F거지왕✌\uFE0F은 " + userList.get(maxUserNo).getID() + "입니다~~!");
-        System.out.println("");
-        System.out.println("max: " + max);
-        break;
+        menu();
+        return;
+      case 3: // View get Money King
+        MoneyKingPage mainMoneyKing = MoneyKingPage.getInstance();
+        mainMoneyKing.menu();
+        return;
       case 0: // Exit
         System.out.printf("Exit\n");
         return;
@@ -168,34 +187,36 @@ public class Menu extends MenuCommand {
 
   }// Method menu END
 
-  private String printKing(String king){
-    String str = "";
-    String reset = "\033[0m";
-    String bold = "\033[1m";
-    String yellow = "\033[33m";
-    String brightYellow = "\033[93m";
 
 
-    str += bold+brightYellow;
-    str += String.format("        /\\     /\\     /\\\n" );
-    str += String.format("       /  \\   /  \\   /  \\\n" );
-    str += String.format("      /    \\ /    \\ /    \\\n" );
-    str += String.format("     /      \\      \\      \\\n" );
-    str += String.format("    /                        \\\n" );
-    str += String.format("   /      이달의 거지왕       \\\n" );
-    str += String.format("  /         %6s          \\\n", king );
-    str += String.format(" /______________________________\\\n" );
-    str += reset;
-
-    return str;
-  }
 
 
-  private void printUser(UserPage user) {
-    System.out.println("---------------");
-    System.out.println("[거지 목록]");
-    System.out.printf(user.printUser());
-    System.out.println("---------------");
+
+
+
+  public void printListUserLiset(){
+    UserCommand usercmd = UserCommand.getInstance();
+
+    while (true) {
+      printUserList();
+      System.out.println("0을 입력하면 메인 메뉴로 돌아갑니다.");
+      int index = getUserScannerInt();
+
+
+      if(usercmd.isValidateUser(index)){
+        AccountPage mainAccount = new AccountPage(userList.get(index - 1));
+        mainAccount.menu();
+      }
+      else{
+        printNumberLimitException();
+        continue;
+      }
+      menu();
+      return;
+    }
+
+
+
   }
 
 }// Class LogIn END
