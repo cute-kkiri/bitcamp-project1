@@ -23,8 +23,6 @@ import bitcamp.project1.page.MenuPage;
 //                         ->[MoneyKingCommand]    ->[MoneyKingPage]
 //
 //
-//
-//
 //                         ------------------------>[MenuPage]
 //
 //                                                    |
