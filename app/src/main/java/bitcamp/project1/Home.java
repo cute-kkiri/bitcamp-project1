@@ -15,17 +15,17 @@ import bitcamp.project1.page.MenuPage;
 //                                                    |
 //                                                    |
 //  [MenuCommand]          ->[UserCommand]         ->[UserPage]
-//  -subMenuList             -(static)userList
-//  -subMunusize
+//  -subMenuList             -userList
+//  -subMenuSize
 //  -LINEWIDTH             ->[AccountCommand]      ->[AccountPage]
 //                           -User
 //
 //                         ->[MoneyKingCommand]    ->[MoneyKingPage]
 //
-//                                                    |
-//                                                    |
-//                                                    |
-//                                                  [Menu]
+//
+//
+//
+//                         ------------------------>[MenuPage]
 //
 //                                                    |
 //                                                    |
