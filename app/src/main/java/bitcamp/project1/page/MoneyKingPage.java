@@ -1,13 +1,13 @@
 package bitcamp.project1.page;
 
-import bitcamp.project1.Util.MoneyKingPageCommand;
+import bitcamp.project1.Util.MoneyKingCommand;
 import bitcamp.project1.Util.UserCommand;
 import bitcamp.project1.vo.User;
 
 import static bitcamp.project1.page.UserPage.userList;
 import static bitcamp.project1.vo.Menu.*;
 
-public class MoneyKingPage extends MoneyKingPageCommand implements Page  {
+public class MoneyKingPage extends MoneyKingCommand implements Page  {
 
     ///////////////////////////////////////////////////////////
     ///////////////////// private Instance ////////////////////
@@ -40,9 +40,20 @@ public class MoneyKingPage extends MoneyKingPageCommand implements Page  {
     ////////////////////////// Method /////////////////////////
     ///////////////////////////////////////////////////////////
 
+    @Override
+    public void setSelectMenu() {
+
+    }
+
     //main Menu
+    @Override
     public void menu(){
         printKing();
+    }
+
+    @Override
+    public void getScanner() {
+
     }
 
     //print King
@@ -144,12 +155,28 @@ public class MoneyKingPage extends MoneyKingPageCommand implements Page  {
     }
 
     @Override
-    public void getUserScanner() {
+    public int setSubMenuNum() {
+        return 0;
+    }
 
+    @Override
+    public int setSubMenu() {
+        return 0;
     }
 
     @Override
     public int getScanner(int ans) {
+        return 0;
+    }
+
+    @Override
+    public int setSubMenuNum(int ans) {
+        return 0;
+    }
+
+
+    @Override
+    public int setSubMenu(int ans) {
         return 0;
     }
 

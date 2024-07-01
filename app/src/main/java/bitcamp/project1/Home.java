@@ -1,17 +1,25 @@
 package bitcamp.project1;
 
 import bitcamp.project1.Util.UserCommand;
-import bitcamp.project1.page.Menu;
+import bitcamp.project1.page.MenuPage;
 
 //                                                  [page]
+//                                                  +public void menu()
+//                                                  +public void getScanner()
+//                                                  +public String printTUI()
+//                                                  +private int setSubMenuNum()
+//                                                  +private void setSubMenu()
+//                                                  +private void selectMenu(int)
 //                                                    |
 //                                                    |
 //                                                    |
 //  [MenuCommand]          ->[UserCommand]         ->[UserPage]
-//  -subMenuName             -(static)userList
-//  -size
-//                        ->[AccountCommand]      ->[AccountPage]
-//                          -User
+//  -subMenuList             -(static)userList
+//  -subMunusize
+//  -LINEWIDTH             ->[AccountCommand]      ->[AccountPage]
+//                           -User
+//
+//                         ->[MoneyKingCommand]    ->[MoneyKingPage]
 //
 //                                                    |
 //                                                    |
@@ -34,7 +42,7 @@ public class Home {
   public static void main(String[] args) {
     //DummyData
     DummyData.addUserDummy(UserCommand.userList);
-    Menu m = new Menu();
+    MenuPage m = new MenuPage();
 
     System.out.print(printPojectName());
 

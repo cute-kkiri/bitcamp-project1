@@ -4,13 +4,12 @@ package bitcamp.project1.page;
 import java.util.LinkedList;
 
 import bitcamp.project1.Util.AccountCommand;
-import bitcamp.project1.Util.UserCommand;
 import bitcamp.project1.vo.User;
 
 public class AccountPage extends AccountCommand implements Page{
   /************************************************/
-
-  private void setSelectMenu() {
+@Override
+public void setSelectMenu() {
     addSelect("기록");
     addSelect("상세");
     addSelect("수정");
@@ -21,7 +20,7 @@ public class AccountPage extends AccountCommand implements Page{
 
   // set default
   public AccountPage(User user) {
-      select = new LinkedList<String>();
+      subMenuList = new LinkedList<String>();
       super.user = user;
       setSelectMenu();
   }
@@ -56,14 +55,16 @@ public class AccountPage extends AccountCommand implements Page{
   ////////////////////////// Method /////////////////////////
   ///////////////////////////////////////////////////////////
   // Run Default Menu
+  @Override
   public void menu() {
-    getUserScanner();
+    getScanner();
     System.out.print(setMenuSpaceTitle());
   }// Method menu END
 
 
   // Get User Scanner
-  public void getUserScanner() {
+  @Override
+  public void getScanner() {
     // default ans < 0
     int ans = -1;
 
@@ -73,7 +74,7 @@ public class AccountPage extends AccountCommand implements Page{
       try {
         // Print Menu List until AccountPage
         System.out.print(printTUI());
-        ans = setMenuNum(ans);
+        ans = this.setSubMenuNum(ans);
         // if ans is not Number
       } catch (NumberFormatException e) {
         printNumberFormatException();
@@ -89,12 +90,18 @@ public class AccountPage extends AccountCommand implements Page{
 
 
   // Set MenuNo(1,2...0) by UserScanner
-  private int setMenuNum(int ans) {
+  @Override
+  public int setSubMenuNum(int ans) {
     ans = getUserScannerInt();
     selectMenu(ans);
 
     return ans;
   }// Method getScanner END
+
+  @Override
+  public int setSubMenu(int ans) {
+    return 0;
+  }
 
 
   // // Print TUI
@@ -108,6 +115,7 @@ public class AccountPage extends AccountCommand implements Page{
   //
   // [1] Create [2] Info [3] Edit [4] Delete [0] Exit
   // +--------------------------------------------------+
+  @Override
   public String printTUI() {
     String str = "";
 
@@ -118,8 +126,19 @@ public class AccountPage extends AccountCommand implements Page{
     return str;
   }// Method printMenu END
 
+  @Override
+  public int setSubMenuNum() {
+    return 0;
+  }
+
+  @Override
+  public int setSubMenu() {
+    return 0;
+  }
+
 
   // Run Menu by MenuNo(1,2...0)
+  @Override
   public void selectMenu(int ans) {
     switch (ans) {
       case 1:// Create

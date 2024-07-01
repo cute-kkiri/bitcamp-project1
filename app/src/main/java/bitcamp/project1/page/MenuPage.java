@@ -7,7 +7,7 @@ import bitcamp.project1.Util.UserCommand;
 import static bitcamp.project1.page.UserPage.userList;
 import static bitcamp.project1.vo.Menu.*;
 
-public class Menu extends MenuCommand {
+public class MenuPage extends MenuCommand {
 
 
 
@@ -26,8 +26,8 @@ public class Menu extends MenuCommand {
   /////////////////////// Constructor ///////////////////////
   ///////////////////////////////////////////////////////////
   // set default
-  public Menu() {
-    select = new LinkedList<String>();
+  public MenuPage() {
+    subMenuList = new LinkedList<String>();
     setSelectMenu();
   }
 

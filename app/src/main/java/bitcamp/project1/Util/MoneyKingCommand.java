@@ -1,18 +1,14 @@
 package bitcamp.project1.Util;
 
-import bitcamp.project1.vo.User;
-
-import java.util.LinkedList;
-
 import static bitcamp.project1.Util.UserCommand.userList;
 
-public class MoneyKingPageCommand extends MenuCommand {
+public class MoneyKingCommand extends MenuCommand {
 
     ///////////////////////////////////////////////////////////
     ////////////////////////// Method /////////////////////////
     ///////////////////////////////////////////////////////////
     //Max UserNo
-    public int getMaxUserNo(){
+    protected int getMaxUserNo(){
         // get userNo(0)'s Total
         int max = userList.getFirst().getTotal();
         int maxUserNo = 0;
@@ -29,7 +25,7 @@ public class MoneyKingPageCommand extends MenuCommand {
 
 
     // [Error] Check Duplication King
-    public boolean checkDuplicateKing(int maxUserNo){
+    protected boolean checkDuplicateKing(int maxUserNo){
         int max = userList.get(maxUserNo).getTotal();
         for(int i = 0; i < userList.size(); i++) {
             if (i!=maxUserNo&&(max == userList.get(i).getTotal())) {

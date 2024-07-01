@@ -6,8 +6,8 @@ import java.util.LinkedList;
 
 public class UserPage extends UserCommand implements Page {
     /************************************************/
-
-    private void setSelectMenu() {
+    @Override
+    public void setSelectMenu() {
         addSelect("추가");
         addSelect("상세");
         addSelect("수정");
@@ -42,7 +42,7 @@ public class UserPage extends UserCommand implements Page {
     ///////////////////////////////////////////////////////////
     // set default
     public UserPage() {
-        select = new LinkedList<String>();
+        subMenuList = new LinkedList<String>();
         setSelectMenu();
     }
 
@@ -52,27 +52,30 @@ public class UserPage extends UserCommand implements Page {
     ////////////////////////// Method /////////////////////////
     ///////////////////////////////////////////////////////////
     // Run Default Menu
+    @Override
     public void menu() {
-        getUserScanner();
+        getScanner();
         System.out.print(setMenuSpaceTitle());
     }// Method menu END
 
 
     // Get User Scanner
-    public void getUserScanner() {
+    @Override
+    public void getScanner() {
         // default ans < 0
         int ans = -1;
 
         // until right answer
-//        while (ans != 0) {
-         while (!isValidateScanner(ans)) {
+        while (ans != 0) {
+//         while (!isValidateScanner(ans)) {
             try {
                 if(ans == 0){
                     return;
                 }
                 // Print Menu List until AccountPage
                 System.out.print(printTUI());
-                ans = setMenuNum(ans);
+                ans = setSubMenuNum(ans);
+
                 // if ans is not Number
             } catch (NumberFormatException e) {
                 printNumberFormatException();
@@ -86,23 +89,29 @@ public class UserPage extends UserCommand implements Page {
         return 0;
     }
 
-
     // Set MenuNo(1,2...0) by UserScanner
-    private int setMenuNum(int ans) {
+    @Override
+    public int setSubMenuNum(int ans) {
         ans = getUserScannerInt();
         selectMenu(ans);
 
         return ans;
     }// Method getScanner END
 
+    @Override
+    public int setSubMenu(int ans) {
+        return 0;
+    }
 
-// // Print TUI
+
+    // // Print TUI
 //    +--------------------------------------------------------------------------------------------------+
 //    |                                          [USER        ]                                          |
 //    +--------------------------------------------------------------------------------------------------+
 //
 //     [1] Create     [2] Info      [3] Edit      [4] Delete     [0] Exit
 //   +--------------------------------------------------------------------------------------------------+
+    @Override
     public String printTUI() {
         String str = "";
 
@@ -113,8 +122,18 @@ public class UserPage extends UserCommand implements Page {
         return str;
     }// Method printMenu END
 
+    @Override
+    public int setSubMenuNum() {
+        return 0;
+    }
+
+    @Override
+    public int setSubMenu() {
+        return 0;
+    }
 
     // Run Menu by MenuNo(1,2...0)
+    @Override
     public void selectMenu(int ans) {
         switch (ans) {
             case 1:// Create

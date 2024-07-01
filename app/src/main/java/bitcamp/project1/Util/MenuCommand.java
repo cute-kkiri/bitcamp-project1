@@ -9,9 +9,9 @@ import java.util.Scanner;
 public class MenuCommand {
   protected Scanner sc = new Scanner(System.in);
 
-  protected int size = 0;// select Menu Size
-  private final int SIZE = 3;
-  protected LinkedList<String> select; // select Menu Name List
+  protected int subMenuSize = 0;// select Menu Size
+  private final int LINEWIDTH = 3;
+  protected LinkedList<String> subMenuList; // select Menu Name List
 
 
   ///////////////////////////////////////////////////////////
@@ -31,12 +31,6 @@ public class MenuCommand {
   // | [TITLE ] |
   // +------------------------------------------+
   protected String setMenuTitle(String title) {
-    String reset = "\033[0m";
-    String bold = "\033[1m";
-    String yellow = "\033[33m";
-    String brightYellow = "\033[93m";
-    String backgroundYellow = "\033[103m";
-    String brown = "\033[0;38;2;139;69;19m";
     String str = "";
 
     str += String.format(setMenuLine());
@@ -56,7 +50,7 @@ public class MenuCommand {
   // [1] Create [2] Info [3] Edit [4] Delete [0] Exit
   protected String setMenuSelect() {
     String str = "";
-    Iterator<String> selectList = select.iterator();
+    Iterator<String> selectList = subMenuList.iterator();
 
     str += String.format("\n");
     // print select title(title_line_size: 14)
@@ -100,7 +94,7 @@ public class MenuCommand {
   // set Space(default (title_line_size: 14)*cnt/2)
   private String setMenuSpace() {
     String str = "";
-    int width = (18 * SIZE) / 2;
+    int width = (18 * LINEWIDTH) / 2;
 
     for (int selectNo = 1; selectNo <= width; selectNo++) {
       str += String.format("%s", " ");
@@ -115,7 +109,7 @@ public class MenuCommand {
     String str = "";
 
     str += String.format("+");
-    for (int selectNo = 0; selectNo <= SIZE; selectNo++) {
+    for (int selectNo = 0; selectNo <= LINEWIDTH; selectNo++) {
       str += String.format("------------------");
     }
     str += String.format("+");
@@ -140,7 +134,7 @@ public class MenuCommand {
   ///////////////////////////////////////////////////////////
 
   protected boolean isValidateScanner(int ans) {
-    return (ans >= 0) && (ans < size) ? true : false;
+    return (ans >= 0) && (ans < subMenuSize) ? true : false;
   }
 
   // (String)nextLine -> Integer
@@ -174,22 +168,22 @@ public class MenuCommand {
   //////////////////////////// -- ///////////////////////////
   ///////////////////////////////////////////////////////////
 
-  public int getSize() {
-    return size;
+  public int getSubMenuSize() {
+    return subMenuSize;
   }
 
-  public LinkedList<String> getSelect() {
-    return select;
+  public LinkedList<String> getSubMenuList() {
+    return subMenuList;
   }
 
   public void addSelect(String selectName) {
-    select.add(selectName);
-    size += 1;
+    subMenuList.add(selectName);
+    subMenuSize += 1;
   }
 
   public void deleteSelect(int selectNo) {
-    select.remove(selectNo);
-    size -= 1;
+    subMenuList.remove(selectNo);
+    subMenuSize -= 1;
   }
 
 
