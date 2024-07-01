@@ -102,11 +102,11 @@ public class AccountCommand extends MenuCommand{
     Account newAcc = new Account();
 
     // set account
-    System.out.printf("Account?");
+    System.out.printf("금액?");
     newAcc.setAccount(getUserScannerInt());
 
     // set description
-    System.out.printf("Description?");
+    System.out.printf("설명?");
     newAcc.setDescription(getUserScannerStr());
 
     // add list
@@ -123,7 +123,8 @@ public class AccountCommand extends MenuCommand{
     String str = "";
     Iterator<Account> iter = user.getAccountList().iterator();
     Account currentAccount = null;
-
+    
+    str += "\n\n";
     for (int selectNo = 1; iter.hasNext(); selectNo++) {
       currentAccount = iter.next();
       // No
@@ -134,6 +135,7 @@ public class AccountCommand extends MenuCommand{
       str += String.format(":%-10s ", currentAccount.getDescription());
       str += String.format("\n");
     }
+    str += "\n\n";
 
     return str;
   }

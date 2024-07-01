@@ -3,6 +3,7 @@ package bitcamp.project1;
 import bitcamp.project1.Util.UserCommand;
 import bitcamp.project1.page.MenuPage;
 
+
 //                                                  [page]
 //                                                  +public void menu()
 //                                                  +public void getScanner()

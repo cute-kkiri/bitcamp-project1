@@ -84,10 +84,6 @@ public class UserPage extends UserCommand implements Page {
 
     }// Method getUserScanner END
 
-    @Override
-    public int getScanner(int ans) {
-        return 0;
-    }
 
     // Set MenuNo(1,2...0) by UserScanner
     @Override
@@ -98,10 +94,6 @@ public class UserPage extends UserCommand implements Page {
         return ans;
     }// Method getScanner END
 
-    @Override
-    public int setSubMenu(int ans) {
-        return 0;
-    }
 
 
     // // Print TUI
@@ -122,16 +114,6 @@ public class UserPage extends UserCommand implements Page {
         return str;
     }// Method printMenu END
 
-    @Override
-    public int setSubMenuNum() {
-        return 0;
-    }
-
-    @Override
-    public int setSubMenu() {
-        return 0;
-    }
-
     // Run Menu by MenuNo(1,2...0)
     @Override
     public void selectMenu(int ans) {
@@ -140,18 +122,18 @@ public class UserPage extends UserCommand implements Page {
                 addUser();
                 return;
             case 2:// Info
-                System.out.print(printUser());
+                System.out.print(printUserDetail());
                 return;
             case 3:// Edit
-                System.out.printf("num?");
+                System.out.printf("수정할 번호?");
                 editUser(getUserScannerInt());
                 return;
             case 4:// Delete
-                System.out.printf("num?");
+                System.out.printf("삭제할 번호?");
                 deleteUser(getUserScannerInt());
                 return;
             case 0:// Exit
-                System.out.printf("Exit\n");
+//                System.out.printf("Exit\n");
                 return;
             default:
                 printNumberLimitException();

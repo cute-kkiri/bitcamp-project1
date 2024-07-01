@@ -83,10 +83,6 @@ public void setSelectMenu() {
 
   }// Method getUserScanner END
 
-  @Override
-  public int getScanner(int ans) {
-    return 0;
-  }
 
 
   // Set MenuNo(1,2...0) by UserScanner
@@ -97,12 +93,6 @@ public void setSelectMenu() {
 
     return ans;
   }// Method getScanner END
-
-  @Override
-  public int setSubMenu(int ans) {
-    return 0;
-  }
-
 
   // // Print TUI
   // +--------------------------------------------------+
@@ -126,15 +116,6 @@ public void setSelectMenu() {
     return str;
   }// Method printMenu END
 
-  @Override
-  public int setSubMenuNum() {
-    return 0;
-  }
-
-  @Override
-  public int setSubMenu() {
-    return 0;
-  }
 
 
   // Run Menu by MenuNo(1,2...0)
@@ -148,11 +129,11 @@ public void setSelectMenu() {
         System.out.print(printInfo());
         return;
       case 3:// Edit
-        System.out.printf("num?");
+        System.out.printf("수정할 번호?");
         editAccount(getUserScannerInt());
         return;
       case 4:// Delete
-        System.out.printf("num?");
+        System.out.printf("삭제할 번호?");
         deleteAccount(getUserScannerInt());
         return;
       case 0:// Exit

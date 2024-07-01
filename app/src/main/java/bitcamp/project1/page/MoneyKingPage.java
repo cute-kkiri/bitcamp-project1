@@ -154,31 +154,12 @@ public class MoneyKingPage extends MoneyKingCommand implements Page  {
         return "";
     }
 
-    @Override
-    public int setSubMenuNum() {
-        return 0;
-    }
-
-    @Override
-    public int setSubMenu() {
-        return 0;
-    }
-
-    @Override
-    public int getScanner(int ans) {
-        return 0;
-    }
 
     @Override
     public int setSubMenuNum(int ans) {
         return 0;
     }
 
-
-    @Override
-    public int setSubMenu(int ans) {
-        return 0;
-    }
 
     @Override
     public void selectMenu(int ans) {

@@ -3,8 +3,9 @@ package bitcamp.project1.Util;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-import bitcamp.project1.DummyData;
 import bitcamp.project1.vo.User;
+
+import static bitcamp.project1.vo.Menu.*;
 
 public class UserCommand extends MenuCommand{
   public static LinkedList<User> userList = new LinkedList<User>();
@@ -89,13 +90,39 @@ public class UserCommand extends MenuCommand{
       currentUser = iter.next();
       // No
       str += String.format("[%d] ", selectNo);
-      // account
-      str += String.format("%-10s ", currentUser.getID());
+      // ID
+      str += String.format("%-15s ", currentUser.getID());
       str += String.format("\n");
     }
 
     return str;
   }
+
+
+
+  public String printUserDetail(){
+    String str = "";
+    Iterator<User> iter = userList.iterator();
+    User currentUser = null;
+
+    str += "\n\n";
+    for (int selectNo = 1; iter.hasNext(); selectNo++) {
+      currentUser = iter.next();
+      // No
+      str += String.format("[%d] ", selectNo);
+      // ID
+      str += String.format("%-15s ", currentUser.getID());
+      //total
+      str += brightCyan;
+      str += String.format("total: %-15s ", currentUser.getTotal());
+      str += String.format("\n");
+      str += reset;
+    }
+    str += "\n\n";
+
+    return str;
+  }
+
 
 
 
@@ -110,10 +137,10 @@ public class UserCommand extends MenuCommand{
     if (isValidateUser(userNo)) {
       User user = this.userList.get(userNo - 1);
       // set account
-      System.out.printf("ID?");
+      System.out.printf("이름?");
       user.setID(getUserScannerStr());
       // set description
-      System.out.printf("PW?");
+      System.out.printf("비밀번호?");
       user.setPW(getUserScannerStr());
     }
   }

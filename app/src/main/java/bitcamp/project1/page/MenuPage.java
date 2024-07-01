@@ -60,7 +60,7 @@ public class MenuPage extends MenuCommand {
     String str = "";
 
 
-    str += bold+brightYellow;
+    str += bold+brown;
     str += String.format("  ___  ___ _____  _   _  _____ __   __     _   __ _____  _   _  _____      "           +"\n" );
     str += String.format("  |  \\/  ||  _  || \\ | ||  ___|\\ \\ / /    | | / /|_   _|| \\ | ||  __ \\     "         +"\n" );
     str += String.format("  | .  . || | | ||  \\| || |__   \\ V /     | |/ /   | |  |  \\| || |  \\/     "         +"\n" );
