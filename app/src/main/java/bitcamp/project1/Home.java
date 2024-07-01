@@ -5,12 +5,12 @@ import bitcamp.project1.page.MenuPage;
 
 
 //                                                  [page]
-//                                                  +public void menu()
-//                                                  +public void getScanner()
-//                                                  +public String printTUI()
-//                                                  +private int setSubMenuNum()
-//                                                  +private void setSubMenu()
-//                                                  +private void selectMenu(int)
+//                                                  +void menu()
+//                                                  +void getScanner()
+//                                                  +String printTUI()
+//                                                  +int setSubMenuNum()
+//                                                  +void setSubMenu()
+//                                                  +void selectMenu(int)
 //                                                    |
 //                                                    |
 //                                                    |
