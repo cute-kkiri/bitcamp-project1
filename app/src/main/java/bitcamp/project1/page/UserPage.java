@@ -55,7 +55,6 @@ public class UserPage extends UserCommand implements Page {
     @Override
     public void menu() {
         getScanner();
-        System.out.print(setMenuSpaceTitle());
     }// Method menu END
 
 

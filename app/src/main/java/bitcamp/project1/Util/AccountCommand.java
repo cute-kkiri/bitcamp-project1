@@ -123,7 +123,7 @@ public class AccountCommand extends MenuCommand{
     String str = "";
     Iterator<Account> iter = user.getAccountList().iterator();
     Account currentAccount = null;
-    
+
     str += "\n\n";
     for (int selectNo = 1; iter.hasNext(); selectNo++) {
       currentAccount = iter.next();

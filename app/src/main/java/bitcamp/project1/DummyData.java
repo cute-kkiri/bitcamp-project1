@@ -17,18 +17,18 @@ public class DummyData {
 
         Account newAcc0 = new Account();
         newAcc0.setAccount(-1400);
-        newAcc0.setDescription("Subway, .,");
+        newAcc0.setDescription("지하철");
         accountList.add(newAcc0);
 
         Account newAcc1 = new Account();
         newAcc1.setAccount(-300);
-        newAcc1.setDescription("Bus/. .");
+        newAcc1.setDescription("버스비");
         accountList.add(newAcc1);
 
 
         Account newAcc2 = new Account();
         newAcc2.setAccount(1000);
-        newAcc2.setDescription("get. .");
+        newAcc2.setDescription("용돈");
         accountList.add(newAcc2);
 
         user.setAccountList(accountList);

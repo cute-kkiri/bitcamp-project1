@@ -153,11 +153,15 @@ public class MenuPage extends MenuCommand {
     switch (ans) {
       case 1: // View Account
         printListUserLiset();
+
+        System.out.print(setMenuSpaceTitle());
         menu();
         break;
       case 2: // View User List
         UserPage mainUser = UserPage.getInstance();
         mainUser.menu();
+
+        System.out.print(setMenuSpaceTitle());
         menu();
         break;
       case 3: // View get Money King
@@ -165,6 +169,7 @@ public class MenuPage extends MenuCommand {
         mainMoneyKing.menu();
         System.out.print(printKing());
         System.out.print(printTUI());
+
         break;
       case 0: // Exit
 //        System.out.printf("Exit\n");

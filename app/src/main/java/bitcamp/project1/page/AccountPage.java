@@ -58,7 +58,6 @@ public void setSelectMenu() {
   @Override
   public void menu() {
     getScanner();
-    System.out.print(setMenuSpaceTitle());
   }// Method menu END
 
 
