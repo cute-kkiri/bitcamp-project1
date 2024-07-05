@@ -36,7 +36,6 @@ Main Menu 페이지
 ##MoneyKingPage
 거지왕 선별 페이지
 --------------------------------------
---------------------------------------
 +void printKing()
 +void printResult()
 +String printKingTUI(int)
@@ -52,7 +51,7 @@ Main Menu 페이지
 가계부 동작
 --------------------------------------
 -User user
---------------------------------------
+
 +String printAccount()
 +String printAccountOpp(int)
 +void addAccount()
@@ -68,7 +67,7 @@ Main Menu 동작
 -LinkedList<String> subMenuList
 -int subMenuSize
 -final int LINEWIDTH
---------------------------------------
+
 +String printMenu(String)
 +String setMenuTitle(String)
 +String setMenuSelect()
@@ -87,7 +86,6 @@ Main Menu 동작
 ##MoneyKingCommnad
 거지왕 동작
 --------------------------------------
---------------------------------------
 +int getMaxUserNo()
 +boolean checkDuplicateKing(int)
 --------------------------------------
@@ -96,7 +94,7 @@ Main Menu 동작
 거지 동작
 --------------------------------------
 -LinkedList<User> userList
---------------------------------------
+
 +void addUser()
 +String printUser()
 +String printUserDetail()
@@ -114,7 +112,6 @@ Main Menu 동작
 -int AccountCommand
 -String description
 --------------------------------------
---------------------------------------
 
 ##MenuCommand
 Menu Class(color, bold ...)
@@ -127,6 +124,6 @@ Menu Class(color, bold ...)
 -String ID
 -String PW
 -int total
---------------------------------------
+
 +void setTotal()
 --------------------------------------
