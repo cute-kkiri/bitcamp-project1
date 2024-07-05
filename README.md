@@ -1,20 +1,20 @@
-# bitcamp-project1
+##  bitcamp-project1
 -팀명: 미래의 부자들
 -팀원: 장혜정 이선아
 
 
-#Home
+## Home
 
 메인
 
-#DummyData
+## DummyData
 
 더미데이터
 
 
-#page
+## page
 
-#Page
+## Page
 
 <<interface>>
 +void setSelectMenu()
@@ -24,11 +24,11 @@
 +String printTUI()
 +void selectMenu(int)
 
-#AccountPage
+## AccountPage
 
 가계부 CRUD 페이지
 
-#MenuPage
+## MenuPage
 
 Main Menu 페이지
 --------------------------------------
@@ -39,7 +39,7 @@ Main Menu 페이지
 +void printListUserLiset()
 --------------------------------------
 
-#MoneyKingPage
+## MoneyKingPage
 
 거지왕 선별 페이지
 --------------------------------------
@@ -49,13 +49,13 @@ Main Menu 페이지
 +void loading(long)
 --------------------------------------
 
-#UserPage
+## UserPage
 
 거지 CRUD 페이지
 
-#util
+## util
 
-#AccountCommand
+## AccountCommand
 
 가계부 동작
 --------------------------------------
@@ -70,7 +70,7 @@ Main Menu 페이지
 +isValidateAccount(int)
 --------------------------------------
 
-#MenuCommand
+## MenuCommand
 
 Main Menu 동작
 --------------------------------------
@@ -93,7 +93,7 @@ Main Menu 동작
 +String scanner()
 --------------------------------------
 
-#MoneyKingCommnad
+## MoneyKingCommnad
 
 거지왕 동작
 --------------------------------------
@@ -101,7 +101,7 @@ Main Menu 동작
 +boolean checkDuplicateKing(int)
 --------------------------------------
 
-#UserCommand
+## UserCommand
 
 거지 동작
 --------------------------------------
@@ -116,9 +116,9 @@ Main Menu 동작
 --------------------------------------
 
 
-#vo
+## vo
 
-#AccountCommand
+## AccountCommand
 
 가계부 Class
 --------------------------------------
@@ -126,11 +126,11 @@ Main Menu 동작
 -String description
 --------------------------------------
 
-#MenuCommand
+## MenuCommand
 
 Menu Class(color, bold ...)
 
-#User
+## User
 
 거지 Class
 --------------------------------------
