@@ -40,7 +40,7 @@ public class MenuPage extends MenuCommand {
   public void menu() {
     System.out.print(printKing());
     System.out.print(printTUI());
-    getUserScanner();
+    getScanner();
   }// Method menu END
 
 
@@ -117,14 +117,14 @@ public class MenuPage extends MenuCommand {
 
 
   // Get User Scanner
-  private void getUserScanner() {
+  private void getScanner() {
     // default ans < 0
     int ans = -1;
 
     // until right answer
     while (!isValidateScanner(ans)) {
       try {
-        ans = setMenuNum(ans);
+        ans = setSelectMenuNum(ans);
         // if ans is not Number
       } catch (NumberFormatException e) {
         printNumberFormatException();
@@ -135,7 +135,7 @@ public class MenuPage extends MenuCommand {
 
 
   // Set MenuNo(1,2...0) by UserScanner
-  private int setMenuNum(int ans) {
+  private int setSelectMenuNum(int ans) {
     ans = getUserScannerInt();
     selectMenu(ans);
 
