@@ -3,15 +3,19 @@
 -팀원: 장혜정 이선아
 
 
-##Home
+#Home
+
 메인
-##DummyData
+
+#DummyData
+
 더미데이터
 
 
 #page
 
-##Page
+#Page
+
 <<interface>>
 +void setSelectMenu()
 +void menu()
@@ -20,10 +24,12 @@
 +String printTUI()
 +void selectMenu(int)
 
-##AccountPage
+#AccountPage
+
 가계부 CRUD 페이지
 
-##MenuPage
+#MenuPage
+
 Main Menu 페이지
 --------------------------------------
 +String printKing()
@@ -33,7 +39,8 @@ Main Menu 페이지
 +void printListUserLiset()
 --------------------------------------
 
-##MoneyKingPage
+#MoneyKingPage
+
 거지왕 선별 페이지
 --------------------------------------
 +void printKing()
@@ -42,12 +49,14 @@ Main Menu 페이지
 +void loading(long)
 --------------------------------------
 
-##UserPage
+#UserPage
+
 거지 CRUD 페이지
 
 #util
 
-##AccountCommand
+#AccountCommand
+
 가계부 동작
 --------------------------------------
 -User user
@@ -61,7 +70,8 @@ Main Menu 페이지
 +isValidateAccount(int)
 --------------------------------------
 
-##MenuCommand
+#MenuCommand
+
 Main Menu 동작
 --------------------------------------
 -LinkedList<String> subMenuList
@@ -83,14 +93,16 @@ Main Menu 동작
 +String scanner()
 --------------------------------------
 
-##MoneyKingCommnad
+#MoneyKingCommnad
+
 거지왕 동작
 --------------------------------------
 +int getMaxUserNo()
 +boolean checkDuplicateKing(int)
 --------------------------------------
 
-##UserCommand
+#UserCommand
+
 거지 동작
 --------------------------------------
 -LinkedList<User> userList
@@ -106,17 +118,20 @@ Main Menu 동작
 
 #vo
 
-##AccountCommand
+#AccountCommand
+
 가계부 Class
 --------------------------------------
 -int AccountCommand
 -String description
 --------------------------------------
 
-##MenuCommand
+#MenuCommand
+
 Menu Class(color, bold ...)
 
-##User
+#User
+
 거지 Class
 --------------------------------------
 -LinkedList<Account> accountList
