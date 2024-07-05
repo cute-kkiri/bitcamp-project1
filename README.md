@@ -1,5 +1,5 @@
 ##  bitcamp-project1
--팀명: 미래의 부자들
+-팀명: 미래의 부자들<br>
 -팀원: 장혜정 이선아
 
 
@@ -16,13 +16,13 @@
 
 ## Page
 
-<<interface>>
-+void setSelectMenu()
-+void menu()
-+public void getScanner()
-+int setSubMenuNum(int)
-+String printTUI()
-+void selectMenu(int)
+\<\<interface\>\><br>
++void setSelectMenu()<br>
++void menu()<br>
++public void getScanner()<br>
++int setSubMenuNum(int)<br>
++String printTUI()<br>
++void selectMenu(int)<br>
 
 ## AccountPage
 
@@ -30,24 +30,24 @@
 
 ## MenuPage
 
-Main Menu 페이지
---------------------------------------
-+String printKing()
-+String printKingTUI()
-+String printLine()
-+String printBlock()
-+void printListUserLiset()
---------------------------------------
+**Main Menu 페이지**<br>
+--------------------------------------<br>
++String printKing()<br>
++String printKingTUI()<br>
++String printLine()<br>
++String printBlock()<br>
++void printListUserLiset()<br>
+--------------------------------------<br>
 
 ## MoneyKingPage
 
-거지왕 선별 페이지
---------------------------------------
-+void printKing()
-+void printResult()
-+String printKingTUI(int)
-+void loading(long)
---------------------------------------
+**거지왕 선별 페이지**<br>
+--------------------------------------<br>
++void printKing()<br>
++void printResult()<br>
++String printKingTUI(int)<br>
++void loading(long)<br>
+--------------------------------------<br>
 
 ## UserPage
 
@@ -57,74 +57,74 @@ Main Menu 페이지
 
 ## AccountCommand
 
-가계부 동작
---------------------------------------
--User user
-
-+String printAccount()
-+String printAccountOpp(int)
-+void addAccount()
-+String printInfo()
-+void editAccount(int)
-+void deleteAccount(int)
-+isValidateAccount(int)
---------------------------------------
+**가계부 동작**<br>
+--------------------------------------<br>
+-User user<br>
+<br>
++String printAccount()<br>
++String printAccountOpp(int)<br>
++void addAccount()<br>
++String printInfo()<br>
++void editAccount(int)<br>
++void deleteAccount(int)<br>
++isValidateAccount(int)<br>
+--------------------------------------<br>
 
 ## MenuCommand
 
-Main Menu 동작
---------------------------------------
--LinkedList<String> subMenuList
--int subMenuSize
--final int LINEWIDTH
-
-+String printMenu(String)
-+String setMenuTitle(String)
-+String setMenuSelect()
-+void printNumberFormatException()
-+void printNumberLimitException()
-+String setMenuSpaceTitle()
-+String setMenuSpace()
-+String setMenuLine()
-+void printUserList()
-+boolean isValidateScanner(int)
-+int getUserScannerInt()
-+String getUserScannerStr()
-+String scanner()
---------------------------------------
+**Main Menu 동작**<br>
+--------------------------------------<br>
+-LinkedList<String> subMenuList<br>
+-int subMenuSize<br>
+-final int LINEWIDTH<br>
+<br>
++String printMenu(String)<br>
++String setMenuTitle(String)<br>
++String setMenuSelect()<br>
++void printNumberFormatException()<br>
++void printNumberLimitException()<br>
++String setMenuSpaceTitle()<br>
++String setMenuSpace()<br>
++String setMenuLine()<br>
++void printUserList()<br>
++boolean isValidateScanner(int)<br>
++int getUserScannerInt()<br>
++String getUserScannerStr()<br>
++String scanner()<br>
+--------------------------------------<br>
 
 ## MoneyKingCommnad
 
-거지왕 동작
---------------------------------------
-+int getMaxUserNo()
-+boolean checkDuplicateKing(int)
---------------------------------------
+**거지왕 동작**<br>
+--------------------------------------<br>
++int getMaxUserNo()<br>
++boolean checkDuplicateKing(int)<br>
+--------------------------------------<br>
 
 ## UserCommand
 
-거지 동작
---------------------------------------
--LinkedList<User> userList
-
-+void addUser()
-+String printUser()
-+String printUserDetail()
-+void editUser(int)
-+void deleteUser(int)
-+boolean isValidateUser(int)
---------------------------------------
+**거지 동작**<br>
+--------------------------------------<br>
+-LinkedList<User> userList<br>
+<br>
++void addUser()<br>
++String printUser()<br>
++String printUserDetail()<br>
++void editUser(int)<br>
++void deleteUser(int)<br>
++boolean isValidateUser(int)<br>
+--------------------------------------<br>
 
 
 ## vo
 
 ## AccountCommand
 
-가계부 Class
---------------------------------------
--int AccountCommand
--String description
---------------------------------------
+**가계부 Class**<br>
+--------------------------------------<br>
+-int AccountCommand<br>
+-String description<br>
+--------------------------------------<br>
 
 ## MenuCommand
 
@@ -132,13 +132,13 @@ Menu Class(color, bold ...)
 
 ## User
 
-거지 Class
---------------------------------------
--LinkedList<Account> accountList
--static int seqNo
--String ID
--String PW
--int total
-
-+void setTotal()
---------------------------------------
+**거지 Class**<br>
+--------------------------------------<br>
+-LinkedList<Account> accountList<br>
+-static int seqNo<br>
+-String ID<br>
+-String PW<br>
+-int total<br>
+<br>
++void setTotal()<br>
+--------------------------------------<br>
