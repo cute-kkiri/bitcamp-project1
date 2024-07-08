@@ -14,7 +14,7 @@
 
 ## page
 
-## Page
+### Page
 
 \<\<interface\>\><br>
 +void setSelectMenu()<br>
@@ -24,11 +24,11 @@
 +String printTUI()<br>
 +void selectMenu(int)<br>
 
-## AccountPage
+### AccountPage
 
 가계부 CRUD 페이지
 
-## MenuPage
+### MenuPage
 
 **Main Menu 페이지**<br>
 --------------------------------------<br>
@@ -39,7 +39,7 @@
 +void printListUserLiset()<br>
 --------------------------------------<br>
 
-## MoneyKingPage
+### MoneyKingPage
 
 **거지왕 선별 페이지**<br>
 --------------------------------------<br>
@@ -49,13 +49,13 @@
 +void loading(long)<br>
 --------------------------------------<br>
 
-## UserPage
+### UserPage
 
 거지 CRUD 페이지
 
 ## util
 
-## AccountCommand
+### AccountCommand
 
 **가계부 동작**<br>
 --------------------------------------<br>
@@ -70,7 +70,7 @@
 +isValidateAccount(int)<br>
 --------------------------------------<br>
 
-## MenuCommand
+### MenuCommand
 
 **Main Menu 동작**<br>
 --------------------------------------<br>
@@ -93,7 +93,7 @@
 +String scanner()<br>
 --------------------------------------<br>
 
-## MoneyKingCommnad
+### MoneyKingCommnad
 
 **거지왕 동작**<br>
 --------------------------------------<br>
@@ -101,7 +101,7 @@
 +boolean checkDuplicateKing(int)<br>
 --------------------------------------<br>
 
-## UserCommand
+### UserCommand
 
 **거지 동작**<br>
 --------------------------------------<br>
@@ -118,7 +118,7 @@
 
 ## vo
 
-## AccountCommand
+### AccountCommand
 
 **가계부 Class**<br>
 --------------------------------------<br>
@@ -126,11 +126,11 @@
 -String description<br>
 --------------------------------------<br>
 
-## MenuCommand
+### MenuCommand
 
 Menu Class(color, bold ...)
 
-## User
+### User
 
 **거지 Class**<br>
 --------------------------------------<br>
