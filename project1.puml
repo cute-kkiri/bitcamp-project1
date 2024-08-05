@@ -1,0 +1,195 @@
+@startuml
+class bitcamp.project1.Util.MoneyKingCommand {
+# int getMaxUserNo()
+# boolean checkDuplicateKing(int)
+}
+
+class bitcamp.project1.Home {
++ {static} void main(String[])
++ {static} String printPojectName()
+}
+
+class bitcamp.project1.Util.MenuCommand {
+# Scanner sc
+# int subMenuSize
+- int LINEWIDTH
+# LinkedList<String> subMenuList
+# String printMenu(String)
+# String setMenuTitle(String)
+# String setMenuSelect()
+# void printNumberFormatException()
+# void printNumberLimitException()
+# String setMenuSpaceTitle()
+- String setMenuSpace()
+- String setMenuLine()
+# void printUserList()
+# boolean isValidateScanner(int)
+# int getUserScannerInt()
+# String getUserScannerStr()
+# String scanner()
++ int getSubMenuSize()
++ LinkedList<String> getSubMenuList()
++ void addSelect(String)
++ void deleteSelect(int)
+}
+
+
+class bitcamp.project1.vo.Menu {
++ {static} String reset
++ {static} String bold
++ {static} String brightYellow
++ {static} String brightCyan
++ {static} String brown
++ {static} String backgroundYellow
+}
+
+interface bitcamp.project1.page.Page {
+~ void setSelectMenu()
+~ void menu()
++ void getScanner()
+~ int setSubMenuNum(int)
+~ String printTUI()
+~ void selectMenu(int)
+}
+
+class bitcamp.project1.page.MenuPage {
+- void setSelectMenu()
++ void menu()
++ String printKing()
++ String printKingTUI()
++ String printLine()
++ String printBlock()
+- String printTUI()
+- void getScanner()
+- int setSelectMenuNum(int)
+- void selectMenu(int)
++ void printListUserLiset()
+}
+
+class bitcamp.project1.Util.UserCommand {
++ {static} LinkedList<User> userList
+- {static} UserCommand userCmd
++ {static} UserCommand getInstance()
++ {static} void freeInstance()
++ void addUser()
++ String printUser()
++ String printUserDetail()
++ void editUser(int)
++ void deleteUser(int)
++ boolean isValidateUser(int)
++ LinkedList<User> getUserList()
++ void setUserList(LinkedList<User>)
+}
+
+
+class bitcamp.project1.vo.Account {
+~ int account
+~ String description
++ String getDescription()
++ void setDescription(String)
++ int getAccount()
++ void setAccount(int)
+}
+
+
+class bitcamp.project1.page.UserPage {
+- {static} UserPage userpg
++ void setSelectMenu()
++ {static} UserPage getInstance()
++ {static} void freeInstance()
++ void menu()
++ void getScanner()
++ int setSubMenuNum(int)
++ String printTUI()
++ void selectMenu(int)
+}
+
+
+class bitcamp.project1.page.MoneyKingPage {
+- {static} MoneyKingPage kingpg
++ {static} MoneyKingPage getInstance()
++ {static} void freeInstance()
++ void setSelectMenu()
++ void menu()
++ void getScanner()
+- void printKing()
+- void printResult()
+- String printKingTUI(int)
+- void loading(long)
++ String printTUI()
++ int setSubMenuNum(int)
++ void selectMenu(int)
+}
+
+
+class bitcamp.project1.Util.AccountCommand {
+# User user
+- {static} AccountCommand accountCmd
++ {static} AccountCommand getInstance(User)
++ {static} void freeInstance()
++ String printAccount()
+- String printAccountOpp(int)
++ void addAccount()
++ String printInfo()
++ void editAccount(int)
++ void deleteAccount(int)
+- boolean isValidateAccount(int)
++ User getUser()
++ void setUser(User)
++ LinkedList<Account> getAccountList()
++ void setAccountList(LinkedList<Account>)
+}
+
+
+class bitcamp.project1.page.AccountPage {
+- {static} AccountPage accpg
++ void setSelectMenu()
++ {static} AccountPage getInstance(User)
++ {static} void freeInstance()
++ void menu()
++ void getScanner()
++ int setSubMenuNum(int)
++ String printTUI()
++ void selectMenu(int)
+}
+
+
+class bitcamp.project1.vo.User {
++ AccountCommand ac
+~ LinkedList<Account> accountList
+~ {static} int seqNo
+~ String ID
+~ String PW
+~ int total
++ void setTotal()
++ int getSeqNo()
++ int setNextSeqNo()
++ String getID()
++ void setID(String)
++ String getPW()
++ void setPW(String)
++ int getTotal()
++ LinkedList<Account> getAccountList()
++ void setAccountList(LinkedList<Account>)
++ void addAccount(Account)
+}
+
+
+class bitcamp.project1.DummyData {
+- {static} void addAccountDummy(User)
++ {static} void addUserDummy(LinkedList<User>)
+}
+
+
+
+bitcamp.project1.Util.MenuCommand <|-- bitcamp.project1.Util.MoneyKingCommand
+bitcamp.project1.Util.MenuCommand <|-- bitcamp.project1.page.MenuPage
+bitcamp.project1.Util.MenuCommand <|-- bitcamp.project1.Util.UserCommand
+bitcamp.project1.page.Page <|.. bitcamp.project1.page.UserPage
+bitcamp.project1.Util.UserCommand <|-- bitcamp.project1.page.UserPage
+bitcamp.project1.page.Page <|.. bitcamp.project1.page.MoneyKingPage
+bitcamp.project1.Util.MoneyKingCommand <|-- bitcamp.project1.page.MoneyKingPage
+bitcamp.project1.Util.MenuCommand <|-- bitcamp.project1.Util.AccountCommand
+bitcamp.project1.page.Page <|.. bitcamp.project1.page.AccountPage
+bitcamp.project1.Util.AccountCommand <|-- bitcamp.project1.page.AccountPage
+@enduml
